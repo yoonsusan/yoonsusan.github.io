@@ -58,6 +58,17 @@
 		padding: 0;
 		margin: 0;
 	}
+	
+	ul ul {
+		position: relative;
+		display: none;
+	}
+	
+	ul:hover ul {
+		display: block;
+	
+	}
+	
 	</style>
  	<link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css" />
     <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.ie.css" />   
@@ -80,9 +91,9 @@
 			<a href="http://www.nbc.com"> nbc </a>
 				<ul>
 						<ul>
-							<li><a href="http://sustainability-mapping.com/skyline.jpg">Page 1</a></li>
-							<li><a href="http://sustainability-mapping.com/skyline.jpg">Page 2</a></li>
-							<li><a href="http://sustainability-mapping.com/skyline.jpg">Page 3</a></li>
+							<ul><a href="http://sustainability-mapping.com/skyline.jpg">Page 1</a></ul>
+							<ul><a href="http://sustainability-mapping.com/skyline.jpg">Page 2</a></ul>
+							<ul><a href="http://sustainability-mapping.com/skyline.jpg">Page 3</a></ul>
 						</ul>
 
 				</ul>
