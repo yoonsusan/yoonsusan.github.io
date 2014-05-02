@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+	html, body {
+		height: 100%;
+		width: 100%
+	}
+		
+	#map {
+		border-style: solid;
+		border-color: black;	
+		height: 250px;
+		width: 100%;
+	}
+	</style>
+ 	<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css">
+	<script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>	
+	<script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.4"></script>
+
+	<script>
+	
+	
+            /*
+             * Keep the map variable out here so we can access it from
+             * the console.
+             */
+            var map;
+
+            $(document).ready(function () {
+                map = L.map('map').setView([40.70, -73.96], 11);
+                var layer = new L.StamenTileLayer("terrain");
+                map.addLayer(layer);
+            });
+        
+    </script>
+	
+</head>
+
+<body>
+
+<div class="bluebox">
+<div id="map">
+
+</div>
+</div>
+</body>
+
+</html>
+
