@@ -5,13 +5,75 @@
 	html, body {
 		height: 100%;
 		width: 100%
+	}	
+	body {	
+		font-family: Arial, Heveltica, sans-serif;
+		background: url(http://sustainability-mapping.com/10-Subtle-Textures09.jpg) repeat;
 	}
-		
+	header {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		width: 100%;
+		height: 80px;
+		background-color: #c1dad6;
+		font-stretch:9;
+		box-shadow: 10px 10px 5px 5px #999;
+		z-index: 50;
+
+	}
+	.headerLeft, .headerRight {
+		float: left;
+		width: 40%;
+		color: white;
+		margin: 0px 25px 0px 25px;
+	}	
+	.headerLeft {
+		float: left;
+	}
+	.headerRight {
+		float: right;
+	}
+	.columnLeft, .columnRight {		
+		margin: 100px 0px 0px 0px;
+	}
+	.columnLeft {
+		width: 20%;
+		float: left;
+		color: white;
+				background-color: #eeeceb;
+	}
+	.columnRight {
+		width: 80%;
+		float: left;
+		color: white;
+				background-color: #eeeceb;
+	}
+	h1, h2, h3 {
+		color: white;
+	}	
+	a {
+		color: white;
+	}
+	a:hover {
+		color: grey;
+	}
+	.headerCenter {
+		height: 120px;
+		width 20%;
+	}
+	nav {
+		text-align: right;
+		width: 100%;
+		float: right;
+		margin: 24px 0px 19px 0px;
+		font-size: 75%;
+	}
 	#map {
 		border-style: solid;
 		border-color: black;	
 		height: 250px;
-		width: 100%;
+		width: 80%;
 	}
 	</style>
  	<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
@@ -20,18 +82,25 @@
 	<script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.4"></script>
 
 	<script>
-	
-	
-            /*
-             * Keep the map variable out here so we can access it from
-             * the console.
-             */
             var map;
 
             $(document).ready(function () {
                 map = L.map('map').setView([40.70, -73.96], 11);
                 var layer = new L.StamenTileLayer("terrain");
                 map.addLayer(layer);
+				
+				$.getJSON('http://yoonsusan.cartodb.com/api/v2/sql?q=SELECT * FROM CP_Dashboard&format=GeoJSON', function (data) {
+                   console.log();
+				   L.geoJson(data, {
+                        onEachFeature: function (feature, layer) {
+                            /*
+                             * As each feature is loaded, add a popup containing
+                             * the area of the feature.
+                             */
+                            layer.bindPopup(feature.properties.agency);
+                        }
+                    }).addTo(map);
+                })
             });
         
     </script>
@@ -39,13 +108,32 @@
 </head>
 
 <body>
-
-<div class="bluebox">
-<div id="map">
-
-</div>
-</div>
+	<header>
+		<div class="headerLeft">
+			<h2> Vulnerability</h2>
+		</div>
+		
+		<div class="headerRight">
+			<nav>
+				<a href="http://sustainability-mapping.com/skyline.jpg">PAGE </a>
+				<a href="http://sustainability-mapping.com/skyline.jpg">PAGE </a>
+				<a href="http://sustainability-mapping.com/skyline.jpg">PAGE </a>
+			</nav>	
+		</div>
+	</header>
+	
+		<div class="columnLeft">
+			left
+		</div>
+		
+		<div class="columnRight">
+			right
+			<div id="map">
+			</div>
+		</div>		
+	</div>
 </body>
+
 
 </html>
 
