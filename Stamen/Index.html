@@ -81,6 +81,10 @@
 	<script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>	
 	<script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.4"></script>
 
+	<link rel="stylesheet" href="http://leaflet.github.io/Leaflet.markercluster/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="http://leaflet.github.io/Leaflet.markercluster/dist/MarkerCluster.Default.css" />
+    <script src="http://leaflet.github.io/Leaflet.markercluster/dist/leaflet.markercluster-src.js"></script>
+
 	<script>
             var map;
 
@@ -89,17 +93,19 @@
                 var layer = new L.StamenTileLayer("terrain");
                 map.addLayer(layer);
 				
+				var markers = L.markerClusterGroup().addTo(map);
+
 				$.getJSON('http://yoonsusan.cartodb.com/api/v2/sql?q=SELECT * FROM CP_Dashboard&format=GeoJSON', function (data) {
-                   console.log();
-				   L.geoJson(data, {
+                   console.log("got geojson");
+				   var geojson = L.geoJson(data, {
                         onEachFeature: function (feature, layer) {
                             /*
-                             * As each feature is loaded, add a popup containing
-                             * the area of the feature.
+                             * As each feature is loaded, add a popup
                              */
-                            layer.bindPopup(feature.properties.agency);
+                            layer.bindPopup('agency: ' + feature.properties.agency);
                         }
-                    }).addTo(map);
+                    });
+					markers.addLayer(geojson);
                 })
             });
         
