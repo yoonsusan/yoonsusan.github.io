@@ -109,9 +109,7 @@
     <script src="http://leaflet.github.io/Leaflet.markercluster/dist/leaflet.markercluster-src.js"></script>
 	
 <!--
-
-
-	
+	***CODE THAT IS NOT WORKING FOR BASELAYERS AND OVERLAYS***
 		$.getJSON('http://yoonsusan.cartodb.com/api/v2/sql?q=SELECT * FROM CP_Dashboard&format=GeoJSON', function (data) {
 			geojson = L.geoJson(data);
 		});
@@ -143,8 +141,6 @@
 			"Show Capital Projects": overCP
 		};
 		
-
-		
 		var baseAerial = L.tileLayer.wms("http://www.orthos.dhses.ny.gov/ArcGIS/services/Latest/MapServer/WMSServer", {
 			maxZoom: 19,	
 			format: 'image/png',
@@ -152,11 +148,6 @@
 			attribution: 'Imagery courtesy of <a href="http://www.nysgis.state.ny.us/gateway/mg/" target="_blank">NYSGIS</a>'
 		});			
 		"Show Aerial Ortho": baseAerial
-		
-		
-			
-	
-			
 -->
 	<script>
 		var map;
@@ -177,6 +168,7 @@
 		//	});
 		
 ///			var geojson = L.geoJson('http://yoonsusan.cartodb.com/api/v2/sql?q=SELECT * FROM CP_Dashboard&format=GeoJSON');
+//			var overCP = geojson;
 						
 			var map = L.map('map', {
 				center: [40.73, -73.99],
@@ -188,8 +180,7 @@
 				"Show Terrain": baseTerrain,
 				"Show Toner":baseToner	
 			};		
-			
-//			var overCP = geojson;
+		
 			
 	//		var overlays = {
 //				"Show Capital Projects": overCP
