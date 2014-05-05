@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- branch master added in github.com editor -->
 <html>
 <head>
 	<style>
@@ -8,28 +7,47 @@
 		width: 100%
 	}	
 	body {	
-		font-family: Arial, Heveltica, sans-serif;
+		font-family: "Hoefler Text", "Cambria", "Didot", "Baskerville old face", "Garamond", "Times New Roman", serif;Didot, Heveltica, serif;
 		background: url(http://sustainability-mapping.com/10-Subtle-Textures09.jpg) repeat;
 	}
 	header {
-		position: fixed;
+		position: absolute;
 		top: 0px;
 		left: 0px;
 		width: 100%;
-		height: 80px;
-		background-color: black;
+		height: 100px;
+		background-color: #c1dad6;
 		font-stretch:9;
-		box-shadow: 5px 5px 3px 1px #999;
-	}
-	.headerLeft, .headerCenter, .headerRight,
-	.columnLeft, .columnRight {
-		float: left;
-		margin: 0px 25px 0px 25px;
+		box-shadow: 10px 10px 5px 5px #999;
+		z-index: 50;
+
 	}
 	.headerLeft, .headerRight {
+		float: left;
 		width: 40%;
 		color: white;
-		background-color: black;
+		margin: 0px 25px 0px 25px;
+	}	
+	.headerLeft {
+		float: left;
+	}
+	.headerRight {
+		float: right;
+	}
+	.columnLeft, .columnRight {		
+		margin: 100px 0px 0px 0px;
+	}
+	.columnLeft {
+		width: 20%;
+		float: left;
+		color: white;
+				background-color: #eeeceb;
+	}
+	.columnRight {
+		width: 80%;
+		float: left;
+		color: white;
+				background-color: #eeeceb;
 	}
 	h1, h2, h3 {
 		color: white;
@@ -53,16 +71,59 @@
 	}
 	#map {
 		border-style: solid;
-		border-color: black;	
-		height: 250px;
-		width: 100%;
+		border-color: #e8d0a9;	
+		height: 450px;
+		width: 80%;
 	}
-
+	.leaflet-popup-content-wrapper {
+                background-color: lightblue;
+                border-radius: 0;
+                box-shadow: none;
+                font-weight: bold;
+                height: 250px;
+    }
+	.leaflet-popup-tip {
+		background-color: lightblue;
+		box-shadow: none;
+	}
 	</style>
- 	<link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css" />
-    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.ie.css" />   
-	<script src="http://libs.cartocdn.com/cartodb.js/v3/cartodb.js"></script>
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+ 	<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css">
+	<script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>	
+	<script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.4"></script>
+
+	<link rel="stylesheet" href="http://leaflet.github.io/Leaflet.markercluster/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="http://leaflet.github.io/Leaflet.markercluster/dist/MarkerCluster.Default.css" />
+    <script src="http://leaflet.github.io/Leaflet.markercluster/dist/leaflet.markercluster-src.js"></script>
+
+	<script>
+            var map;
+
+            $(document).ready(function () {
+                map = L.map('map').setView([40.70, -73.96], 11);
+                var layer = new L.StamenTileLayer("terrain");
+					map.addLayer(layer);
+				var markers = L.markerClusterGroup().addTo(map);
+			
+				$.getJSON('http://yoonsusan.cartodb.com/api/v2/sql?q=SELECT * FROM SVOI_2000&format=GeoJSON', function (data) {
+					console.log("got geojson");
+					var popupOptions = {
+							minWidth: 150
+					};
+					var geojson = L.geoJson(data, {
+                        onEachFeature: function (feature, layer) {
+							/* var agency = */
+                   
+							var content = '<p>agency: ' + feature.properties.agency + '</p>';
+                            content = content + '<a href="http://MTA.info/">hyperlink</a>';
+                            layer.bindPopup(content, popupOptions);                       
+						}
+                    });
+					markers.addLayer(geojson);
+                });
+            });
+        
+    </script>
 	
 	
 </head>
@@ -70,24 +131,51 @@
 <body>
 	<header>
 		<div class="headerLeft">
-			<h2> Vulnerability</h2>
+			<h2> Vulnerability Mapping Cluster Marker Test</h2>
 		</div>
-		<div class="headerCenter">
-			<img src="http://sustainability-mapping.com/skyline.jpg">
-		</div>
+		
 		<div class="headerRight">
 			<nav>
-				<a href="http://sustainability-mapping.com/skyline.jpg">PAGE </a>
-				<a href="http://sustainability-mapping.com/skyline.jpg">PAGE </a>
-				<a href="http://sustainability-mapping.com/skyline.jpg">PAGE </a>
+				<a href="yoonsusan.github.io">HOME </a>
+				<a href="yoonsusan.github.io/CP/index.html">Projects </a>
+				<a href="yoonsusan.github.io/test_Layers.html">TEST </a>
+				
+				<a href="yoonsusan.github.io/SVOI/index.html">NOAA SVOI </a>
 			</nav>	
 		</div>
 	</header>
-	<div>
-		<div id="map">
+	
+		<div class="columnLeft">
+			<p>
+			Climate risk is defined as the "product of the likelihood of an event occurring and the magnitude of consequences should that event occur... likelihood is defined as th probability of occurrence of a climamte hazard." (NPCC, 2009)
+			<br />
+			<br />
+			The New York Metropolitan area is faced with specific climate change hazards: temperature increase, changes in precipitation patterns, sea-level rise and the consequent heat waves, flooding, and coastal inundation.  
+			<br />
+			Sea-level Rise:<br />
+			Forecasts predict sea-level rise to be between 12 to 23 inches by 2080’s.  With a rapid ice-melt scenario (based off current rates of ice melt in Greenland and Antarctica), sea-level rise could be between 41 to 55 inches.  This 12 to 55 inch stillwater elevation rise would exacerbate storm surge and coastal inundation.
+			<br />
+			Temperature:<br />
+			Climate forecasts predict a steady increase in frequency of days above 90 degrees.  Estimates are between 38 to 70 days above 90 degrees per year by the end of the century.  Prior to 1990, there were approximately 17 days above 90 degrees per year.   This increase will cause significant damage to assets and strain on infrastructure.  
+			<br />
+			Extreme Precipitation:<br />
+			Precipitation patterns show an increase in rainfall and non-coastal rainstorms due to global warming. Climate modeling predicts an annual precipitation increase between 5 and 15 percent by the end of the century.  Also, the number of days with over 2 inches of rain will increase a factor of 1.4 to 1.8.  
+			<br />
+			Coastal Storms:<br />
+			By the 2050’s the IPCC has predicted that the frequency and intensity of intense hurricanes (category 3 or higher) is “more likely than not” to increase.  Without adaptation to combat sea-level rise and coastal storms, a 100 year flood event (“a flood that has a 1 percent chance of occurring in any given year”) will become 5 times more frequent by the 2050’s.  
+			<br />
+			(City of New York, 2013) (Intergovernmental Panel on Climate Change, 2012) (Metropolitan Transportation Authority, 2007) (Metropolitan Transportation Authority, 2008) (New York State, 2011) 
+			</p>
 		</div>
+		
+		<div class="columnRight">
+			right
+			<div id="map">
+			</div>
+		</div>		
 	</div>
 </body>
+
 
 </html>
 
