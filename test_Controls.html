@@ -98,16 +98,13 @@
     }
 	</style>
  	<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
-	
 	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css">
 	<script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>	
-	
 	<script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.4"></script>
 
 	<link rel="stylesheet" href="http://leaflet.github.io/Leaflet.markercluster/dist/MarkerCluster.css" />
     <link rel="stylesheet" href="http://leaflet.github.io/Leaflet.markercluster/dist/MarkerCluster.Default.css" />
     <script src="http://leaflet.github.io/Leaflet.markercluster/dist/leaflet.markercluster-src.js"></script>
-	
 <!--
 	<script>
             var map;
@@ -134,78 +131,28 @@
             });
         
     </script>
-
-	
-		$.getJSON('http://yoonsusan.cartodb.com/api/v2/sql?q=SELECT * FROM CP_Dashboard&format=GeoJSON', function (data) {
-			geojson = L.geoJson(data);
-		});
-		$.getJSON('http://yoonsusan.cartodb.com/api/v2/sql?q=SELECT * FROM CP_Dashboard&format=GeoJSON', function (data) {
-			var geojson = L.geoJson(data, {
-				onEachFeature: function (feature, layer) {
-					layer.bindPopup('agency: ' + feature.properties.agency);
-				}
-			}) .addTo(map);
-        });
-			
-			
-		var sql = new cartodb.SQL({ user: 'examples', format: 'geojson' });
-		$.getJSON('http://yoonsusan.cartodb.com/api/v2/sql?q=SELECT * FROM CP_Dashboard&format=GeoJSON', function (data) {
-		   var overCP = L.geoJson()
-				sql.execute("SELECT * FROM CP_Dashboard").done(function(geojson) {
-				overCP.addData(geojson);
-		});
-		var overlays = {
-			"Show Capital Projects": overCP
-		};
-		
-
-		
-		var baseAerial = L.tileLayer.wms("http://www.orthos.dhses.ny.gov/ArcGIS/services/Latest/MapServer/WMSServer", {
-			maxZoom: 19,	
-			format: 'image/png',
-			transparent: true,
-			attribution: 'Imagery courtesy of <a href="http://www.nysgis.state.ny.us/gateway/mg/" target="_blank">NYSGIS</a>'
-		});			
-		"Show Aerial Ortho": baseAerial
-		
-		
-			
-	
-			
 -->
 	<script>
-		var map;
+		var baseStamen = 
 
-        $(document).ready(function () {
+	    var grayscale   = L.tileLayer(mbUrl,),
+		    streets  = L.tileLayer(mbUrl, );
 
-			var baseTerrain = new L.StamenTileLayer("terrain");
-			var baseToner = new L.StamenTileLayer ("toner");
-			
-			$.getJSON('http://yoonsusan.cartodb.com/api/v2/sql?q=SELECT * FROM CP_Dashboard&format=GeoJSON', function (data) {
-				var geojson = L.geoJson(data, {
-					onEachFeature: function (feature, layer) {
-						layer.bindPopup('agency: ' + feature.properties.agency);
-					}
-				})
-			});
-						
-			var map = L.map('map', {
-				center: [40.73, -73.99],
-				zoom: 10,
-				layers: [baseTerrain]
-			});
-	
-			var baseLayers = {
-				"Show Terrain": baseTerrain,
-				"Show Toner":baseToner	
-			};		
-			
-			var overlays = {
-			"Show Capital Projects": geojson
-			};
-	
-			L.control.layers(baseLayers, overlays).addTo(map);
+		var map = L.map('map', {
+			center: [39.73, -104.99],
+			zoom: 10,
+			layers: [grayscale, cities]
 		});
+
+		var baseLayers = {
+			"Show Terrain": grayscale,
+		};
+
+		var overlays = {
+			"Cities": cities
+		};
+
+		L.control.layers(baseLayers, overlays).addTo(map);
 	</script>
 
 </head>
