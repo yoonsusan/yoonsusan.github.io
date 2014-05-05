@@ -15,7 +15,7 @@
 		top: 0px;
 		left: 0px;
 		width: 100%;
-		height: 80px;
+		height: 100px;
 		background-color: #c1dad6;
 		font-stretch:9;
 		box-shadow: 10px 10px 5px 5px #999;
@@ -109,31 +109,7 @@
     <script src="http://leaflet.github.io/Leaflet.markercluster/dist/leaflet.markercluster-src.js"></script>
 	
 <!--
-	<script>
-            var map;
 
-            $(document).ready(function () {
-                map = L.map('map').setView([40.70, -73.96], 11);
-                var layer = new L.StamenTileLayer("terrain");
-                map.addLayer(layer);
-				
-				var markers = L.markerClusterGroup().addTo(map);
-
-				$.getJSON('http://yoonsusan.cartodb.com/api/v2/sql?q=SELECT * FROM CP_Dashboard&format=GeoJSON', function (data) {
-                   console.log("got geojson, woohoo");
-				   var geojson = L.geoJson(data, {
-                        onEachFeature: function (feature, layer) {
-                            /*
-                             * As each feature is loaded, add a popup
-                             */
-                            layer.bindPopup('agency: ' + feature.properties.agency);
-                        }
-                    });
-					markers.addLayer(geojson);
-                })
-            });
-        
-    </script>
 
 	
 		$.getJSON('http://yoonsusan.cartodb.com/api/v2/sql?q=SELECT * FROM CP_Dashboard&format=GeoJSON', function (data) {
@@ -146,8 +122,17 @@
 				}
 			}) .addTo(map);
         });
-			
-			
+		$.getJSON('http://yoonsusan.cartodb.com/api/v2/sql?q=SELECT * FROM CP_Dashboard&format=GeoJSON', function (data) {
+			var geojson = L.geoJson(data, {
+				onEachFeature: function (feature, layer) {
+					layer.bindPopup('agency: ' + feature.properties.agency);
+				}
+			})
+		});
+		var geojson = L.geoJson('http://yoonsusan.cartodb.com/api/v2/sql?q=SELECT * FROM CP_Dashboard&format=GeoJSON', 
+			function (data));
+		var geojson = L.geoJson('http://yoonsusan.cartodb.com/api/v2/sql?q=SELECT * FROM CP_Dashboard&format=GeoJSON')
+		
 		var sql = new cartodb.SQL({ user: 'examples', format: 'geojson' });
 		$.getJSON('http://yoonsusan.cartodb.com/api/v2/sql?q=SELECT * FROM CP_Dashboard&format=GeoJSON', function (data) {
 		   var overCP = L.geoJson()
@@ -175,19 +160,23 @@
 -->
 	<script>
 		var map;
-
+		$.getJSON('http://yoonsusan.cartodb.com/api/v2/sql?q=SELECT * FROM CP_Dashboard&format=GeoJSON', function (data) {
+			var geojson = L.geoJson(data, {
+				onEachFeature: function (feature, layer) {
+					layer.bindPopup('agency: ' + feature.properties.agency);
+				}
+			})
+		});
+		
         $(document).ready(function () {
 
 			var baseTerrain = new L.StamenTileLayer("terrain");
 			var baseToner = new L.StamenTileLayer ("toner");
-			
-			$.getJSON('http://yoonsusan.cartodb.com/api/v2/sql?q=SELECT * FROM CP_Dashboard&format=GeoJSON', function (data) {
-				var geojson = L.geoJson(data, {
-					onEachFeature: function (feature, layer) {
-						layer.bindPopup('agency: ' + feature.properties.agency);
-					}
-				})
-			});
+//			var baseOSM = new L.tileLayer ('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+	//			attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors"
+		//	});
+		
+///			var geojson = L.geoJson('http://yoonsusan.cartodb.com/api/v2/sql?q=SELECT * FROM CP_Dashboard&format=GeoJSON');
 						
 			var map = L.map('map', {
 				center: [40.73, -73.99],
@@ -200,11 +189,13 @@
 				"Show Toner":baseToner	
 			};		
 			
-			var overlays = {
-			"Show Capital Projects": geojson
-			};
+//			var overCP = geojson;
+			
+	//		var overlays = {
+//				"Show Capital Projects": overCP
+	//		};
 	
-			L.control.layers(baseLayers, overlays).addTo(map);
+			L.control.layers(baseLayers).addTo(map);
 		});
 	</script>
 
@@ -213,7 +204,7 @@
 <body>
 	<header>
 		<div class="headerLeft">
-			<h2> Vulnerability</h2>
+			<h2> Vulnerability Mapping Test Layers</h2>
 		</div>
 		
 		<div class="headerRight">
