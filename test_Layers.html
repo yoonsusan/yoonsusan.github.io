@@ -75,16 +75,15 @@
 		height: 450px;
 		width: 80%;
 	}
-	.leaflet-popup-content-wrapper {
-                background-color: lightblue;
-                border-radius: 0;
-                box-shadow: none;
-                font-weight: bold;
-                height: 250px;
-    }
-	.leaflet-popup-tip {
-		background-color: lightblue;
-		box-shadow: none;
+	#agencyFilter {
+		background: ;
+		cursor: pointer;
+		width: 300px;
+		padding: 10px;
+		position: absolute;
+		right: 10px;
+		top: 10px;
+		z-index; 50;
 	}
 	</style>
  	<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
@@ -102,27 +101,22 @@
             $(document).ready(function () {
                 map = L.map('map').setView([40.70, -73.96], 11);
                 var layer = new L.StamenTileLayer("terrain");
-					map.addLayer(layer);
+                map.addLayer(layer);
+				
 				var markers = L.markerClusterGroup().addTo(map);
-			
+
 				$.getJSON('http://yoonsusan.cartodb.com/api/v2/sql?q=SELECT * FROM CP_Dashboard&format=GeoJSON', function (data) {
-					console.log("got geojson");
-					var popupOptions = {
-							minWidth: 150
-							/*http://leafletjs.com/reference.html#popup-maxwidth*/
-					};
-					var geojson = L.geoJson(data, {
+                   console.log("got geojson, woohoo");
+				   var geojson = L.geoJson(data, {
                         onEachFeature: function (feature, layer) {
-							/* var agency = */
-                   
-							var content = '<p>agency: ' + feature.properties.agency + '</p>';
-                            content = content + '<a href="http://MTA.info/">hyperlink</a>';
-                            layer.bindPopup(content, popupOptions);                       
-						}
-							
+                            /*
+                             * As each feature is loaded, add a popup
+                             */
+                            layer.bindPopup('agency: ' + feature.properties.agency);
+                        }
                     });
 					markers.addLayer(geojson);
-                });
+                })
             });
         
     </script>
@@ -152,6 +146,8 @@
 			right
 			<div id="map">
 			</div>
+			<select id="agencyFilter"> 
+			</select>
 		</div>		
 	</div>
 </body>
