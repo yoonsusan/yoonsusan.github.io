@@ -152,12 +152,16 @@
 -->
 	<script>
 		var map;
+		var geojson;
+		var layerControl;
+		
 		$.getJSON('http://yoonsusan.cartodb.com/api/v2/sql?q=SELECT * FROM CP_Dashboard&format=GeoJSON', function (data) {
-			var geojson = L.geoJson(data, {
+			geojson = L.geoJson(data, {
 				onEachFeature: function (feature, layer) {
 					layer.bindPopup('agency: ' + feature.properties.agency);
 				}
 			})
+			layerControl.addOverlay (geojson, "CP_Dash");
 		});
 		
         $(document).ready(function () {
@@ -182,12 +186,13 @@
 				"Show Toner":baseToner	
 			};		
 		
-			
-	//		var overlays = {
-//				"Show Capital Projects": overCP
-	//		};
+			console.log(geojson);
+		
+			var overlays = {
+//				"Show Capital Projects": geojson
+			};
 	
-			L.control.layers(baseLayers).addTo(map);
+			layerControl = L.control.layers(baseLayers, overlays).addTo(map);
 		});
 	</script>
 
