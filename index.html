@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+	html, body {
+		height: 100%;
+		width: 100%
+	}	
+	body {	
+		font-family: "Hoefler Text", "Cambria", "Didot", "Baskerville old face", "Garamond", "Times New Roman", serif;Didot, Heveltica, serif;
+		background: url(http://sustainability-mapping.com/10-Subtle-Textures09.jpg) repeat;
+	}
+	header {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		width: 100%;
+		height: 100px;
+		background-color: #c1dad6;
+		font-stretch:9;
+		box-shadow: 10px 10px 5px 5px #999;
+		z-index: 50;
+
+	}
+	.headerLeft, .headerRight {
+		float: left;
+		width: 40%;
+		color: white;
+		margin: 0px 25px 0px 25px;
+	}	
+	.headerLeft {
+		float: left;
+	}
+	.headerRight {
+		float: right;
+	}
+	.columnLeft, .columnRight {		
+		margin: 120px 0px 0px 10px;
+	}
+	.columnLeft {
+		width: 20%;
+		float: left;
+		color: white;
+				background-color: #eeeceb;
+	}
+
+	.columnRight {
+		width: 75%;
+		float: left;
+		color: white;
+				background-color: #eeeceb;
+	}
+	h1, h2, h3 {
+		color: white;
+	}	
+	a {
+		color: white;
+	}
+	a:hover {
+		color: grey;
+	}
+	.headerCenter {
+		height: 120px;
+		width 20%;
+	}
+	nav {
+		text-align: right;
+		width: 100%;
+		float: right;
+		margin: 24px 0px 19px 0px;
+		font-size: 75%;
+	}
+	#map {
+		border-style: solid;
+		border-color: #e8d0a9;	
+		height: 450px;
+		width: 80%;
+	}
+	#agencyFilter {
+		background: ;
+		cursor: pointer;
+		width: 300px;
+		padding: 10px;
+		position: absolute;
+		right: 10px;
+		top: 10px;
+		z-index; 50;
+	}
+	.leaflet-popup-content-wrapper {
+		background-color: lightblue;
+		border-radius: 0;
+		box-shadow: none;
+		font-weight: bold;
+		height: 250px;
+	}
+	.leaflet-popup-tip {
+		background-color: lightblue;
+		box-shadow: none;
+    }
+	</style>
+ 	<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+	
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css">
+	<script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>	
+	
+	<script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.4"></script>
+
+	<link rel="stylesheet" href="http://leaflet.github.io/Leaflet.markercluster/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="http://leaflet.github.io/Leaflet.markercluster/dist/MarkerCluster.Default.css" />
+    <script src="http://leaflet.github.io/Leaflet.markercluster/dist/leaflet.markercluster-src.js"></script>
+	
+<!--
+	***CODE THAT IS NOT WORKING FOR BASELAYERS AND OVERLAYS***
+		$.getJSON('http://yoonsusan.cartodb.com/api/v2/sql?q=SELECT * FROM CP_Dashboard&format=GeoJSON', function (data) {
+			geojson = L.geoJson(data);
+		});
+		$.getJSON('http://yoonsusan.cartodb.com/api/v2/sql?q=SELECT * FROM CP_Dashboard&format=GeoJSON', function (data) {
+			var geojson = L.geoJson(data, {
+				onEachFeature: function (feature, layer) {
+					layer.bindPopup('agency: ' + feature.properties.agency);
+				}
+			}) .addTo(map);
+        });
+		$.getJSON('http://yoonsusan.cartodb.com/api/v2/sql?q=SELECT * FROM CP_Dashboard&format=GeoJSON', function (data) {
+			var geojson = L.geoJson(data, {
+				onEachFeature: function (feature, layer) {
+					layer.bindPopup('agency: ' + feature.properties.agency);
+				}
+			})
+		});
+		var geojson = L.geoJson('http://yoonsusan.cartodb.com/api/v2/sql?q=SELECT * FROM CP_Dashboard&format=GeoJSON', 
+			function (data));
+		var geojson = L.geoJson('http://yoonsusan.cartodb.com/api/v2/sql?q=SELECT * FROM CP_Dashboard&format=GeoJSON')
+		
+		var sql = new cartodb.SQL({ user: 'examples', format: 'geojson' });
+		$.getJSON('http://yoonsusan.cartodb.com/api/v2/sql?q=SELECT * FROM CP_Dashboard&format=GeoJSON', function (data) {
+		   var overCP = L.geoJson()
+				sql.execute("SELECT * FROM CP_Dashboard").done(function(geojson) {
+				overCP.addData(geojson);
+		});
+		var overlays = {
+			"Show Capital Projects": overCP
+		};
+		
+		var baseAerial = L.tileLayer.wms("http://www.orthos.dhses.ny.gov/ArcGIS/services/Latest/MapServer/WMSServer", {
+			maxZoom: 19,	
+			format: 'image/png',
+			transparent: true,
+			attribution: 'Imagery courtesy of <a href="http://www.nysgis.state.ny.us/gateway/mg/" target="_blank">NYSGIS</a>'
+		});			
+		"Show Aerial Ortho": baseAerial
+		
+		http://tigerweb.geo.census.gov/arcgis/services/tigerWMS/MapServer/WmsServer?
+		
+		var censusTracts = new L.TileLayer.WMS("http://tigerweb.geo.census.gov/ArcGIS/services/tigerWMS/MapServer/WMSServer",
+		{
+		  layers: 'Census Tracts',
+		  format: 'image/png',
+		  transparent: true,
+		  attribution: TigerAttribution
+		});
+-->
+	<script>
+		var map;
+		var geojson;
+		
+		$(document).ready(function () {
+  	  
+  	  var map = L.map('map', {
+  				center: [40.73, -73.99],
+  				zoom: 10,
+  				layers: [baseTerrain]
+  		});
+  	
+			var baseTerrain = new L.StamenTileLayer("terrain");
+			
+			baseTerrain.addTo(map);
+	
+		});
+	
+	</script>
+</head>
+
+<body>
+	<header>
+		<div class="headerLeft">
+			<h2> Vulnerability Mapping Layer Control Test</h2>
+		</div>
+		
+		<div class="headerRight">
+			<nav>
+
+				<a href=index.html>HOME </a>
+				<a href=CP/index.html>   Projects Cluster</a>
+				<a href=test_Layers.html>TEST Layers</a>
+				<a href=SVOI/index.html>NOAA SVOI </a>
+			</nav>	
+		</div>
+	</header>
+	
+		<div class="columnLeft">
+			<p>
+			Climate risk is as the "product of the likelihood of an event occurring and the magnitude of consequences should that event occur... [where] likelihood is defined as the probability of occurrence of a climate hazard." (NPCC, 2009)
+			<br />
+			<br />
+			The New York Metropolitan area is faced with specific climate change hazards: temperature increase, changes in precipitation patterns, sea-level rise and the consequent heat waves, flooding, and coastal inundation.  
+			<br />
+			Sea-level Rise:<br />
+			Forecasts predict sea-level rise to be between 12 to 23 inches by 2080’s.  With a rapid ice-melt scenario (based off current rates of ice melt in Greenland and Antarctica), sea-level rise could be between 41 to 55 inches.  This 12 to 55 inch stillwater elevation rise would exacerbate storm surge and coastal inundation.
+			<br />
+			Temperature:<br />
+			Climate forecasts predict a steady increase in frequency of days above 90 degrees.  Estimates are between 38 to 70 days above 90 degrees per year by the end of the century.  Prior to 1990, there were approximately 17 days above 90 degrees per year.   This increase will cause significant damage to assets and strain on infrastructure.  
+			<br />
+			Extreme Precipitation:<br />
+			Precipitation patterns show an increase in rainfall and non-coastal rainstorms due to global warming. Climate modeling predicts an annual precipitation increase between 5 and 15 percent by the end of the century.  Also, the number of days with over 2 inches of rain will increase a factor of 1.4 to 1.8.  
+			<br />
+			Coastal Storms:<br />
+			By the 2050’s the IPCC has predicted that the frequency and intensity of intense hurricanes (category 3 or higher) is “more likely than not” to increase.  Without adaptation to combat sea-level rise and coastal storms, a 100 year flood event (“a flood that has a 1 percent chance of occurring in any given year”) will become 5 times more frequent by the 2050’s.  
+			<br />
+			(City of New York, 2013) (Intergovernmental Panel on Climate Change, 2012) (Metropolitan Transportation Authority, 2007) (Metropolitan Transportation Authority, 2008) (New York State, 2011) 
+			</p>
+		</div>
+		
+		<div class="columnRight">
+			<div id="map">
+			</div>
+			<select id="agencyFilter"> 
+			</select>
+		</div>		
+	</div>
+</body>
+
+
+</html>
