@@ -137,13 +137,29 @@ nav {
 			var baseTerrain = new L.StamenTileLayer("terrain");
 			var baseToner = new L.StamenTileLayer ("toner");
 
-			var overCensus = new L.TileLayer.WMS("http://tigerweb.geo.census.gov/ArcGIS/services/tigerWMS/MapServer/WMSServer", 
+			var overCensusTract = new L.TileLayer.WMS("http://tigerweb.geo.census.gov/ArcGIS/services/tigerWMS/MapServer/WMSServer", 
 			{
 				layers: 'Census Tracts',
 				format: 'image/png',
 				transparent: true,
 				attribution: 'tigerweb.geo.census.gov'
 			});
+			
+		   	var censusCounties = new L.TileLayer.WMS("http://tigerweb.geo.census.gov/ArcGIS/services/tigerWMS/MapServer/WMSServer",
+                    	{
+	                        layers: 'Counties',
+	                        format: 'image/png',
+	                        transparent: true,
+	                        attribution: TigerAttribution
+                    	});
+                    	
+			var overCongress = new L.TileLayer.WMS("http://tigerweb.geo.census.gov/ArcGIS/services/tigerWMS/MapServer/WMSServer",
+                    	{
+	                        layers: '113th Congressional Districts',
+	                        format: 'image/png',
+	                        transparent: true,
+	                        attribution: TigerAttribution
+                    	});
 	
 			var map = L.map('map', {
 				center: [40.73, -73.99],
@@ -156,10 +172,9 @@ nav {
 				"Show Toner":baseToner	
 			};		
 
-		
-
 			var overlays = {
-				"Show Capital Projects": overCensus
+				"Show Census Tracts": overCensus,
+				"Show Congress Districts": overCongress
 			};
 
 			layerControl = L.control.layers(baseLayers, overlays).addTo(map);
@@ -170,7 +185,7 @@ nav {
 <body>
 	<header>
 		<div class="headerLeft">
-			<h2> Vulnerability Mapping Layer Control Test</h2>
+			<h2> Vulnerability Mapping Census WMS Test</h2>
 		</div>
 
 		<div class="headerRight">
