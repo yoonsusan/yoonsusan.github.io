@@ -136,7 +136,9 @@ nav {
 
 			var baseTerrain = new L.StamenTileLayer("terrain");
 			var baseToner = new L.StamenTileLayer ("toner");
-			var baseOpenGray = L.tileLayer('http://openmapsurfer.uni-hd.de/tiles/roadsg/x={x}&y={y}&z={z}', {
+			
+			var baseOpenGray = new L.TileLayer('http://openmapsurfer.uni-hd.de/tiles/roadsg/x={x}&y={y}&z={z}', 
+			{
 				attribution: '<a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
 			});
 
