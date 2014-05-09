@@ -186,15 +186,18 @@
                 	map = L.map('map').setView([40.70, -73.96], 11);
         		
         		
-        		var layer = new L.TileLayer.WMS("http://tigerweb.geo.census.gov/ArcGIS/services/tigerWMS/MapServer/WMSServer", 
-        		{
-			  layers: 'Census Tracts',
-			  format: 'image/png',
-			  transparent: true,
-			  attribution: 'tigerweb.geo.census.gov'
-			});
-        		
-        		map.addLayer(layer);
+	        	 $.getJSON('nyct_routes.geojson', function (data) {
+	                    L.geoJson(data, {
+	                        onEachFeature: function (feature, layer) {
+	                            /*
+	                             * As each feature is loaded, add a popup containing
+	                             * the area of the feature.
+	                             */
+	                            layer.bindPopup('line: ' + feature.properties.line);
+	                        }
+	                    }).addTo(map);
+	                });
+           
 		});
 	</script>
 </head>
