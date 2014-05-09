@@ -183,7 +183,11 @@ nav {
 	                        transparent: true,
 	                        attribution: 'tigerweb.geo.census.gov'
                     	});
-	
+			var overNYCT = new L.TileLayer.WMS('/nyct_routes.geojson',
+                    	{
+	                       
+                    	});
+			
 			var map = L.map('map', {
 				center: [40.73, -73.99],
 				zoom: 10,
@@ -199,10 +203,10 @@ nav {
 			};		
 
 			var overlays = {
-				"Show NYS Assembly": overSLDL,
-				
 				"Show Congress Districts": overCongress,
-				"Show Counties": overCounties
+				"Show Congress Districts": overNYCT,
+				"Show Counties": overCounties,
+				"Show NYS Assembly": overSLDL,
 			};
 
 			layerControl = L.control.layers(baseLayers, overlays).addTo(map);
