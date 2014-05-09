@@ -2,89 +2,88 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<style>
-	html, body {
-		height: 100%;
-		width: 100%
-	}	
-	body {	
-		font-family: "Hoefler Text", "Cambria", "Didot", "Baskerville old face", "Garamond", "Times New Roman", serif;Didot, Heveltica, serif;
-		background: url(http://sustainability-mapping.com/10-Subtle-Textures09.jpg) repeat;
-	}
-	header {
-		position: absolute;
-		top: 0px;
-		left: 0px;
-		width: 100%;
-		height: 100px;
-		background-color: #c1dad6;
-		font-stretch:9;
-		box-shadow: 10px 10px 5px 5px #999;
-		z-index: 50;
+<style>
+html, body {
+	height: 100%;
+	width: 100%
+}	
+body {	
+	font-family: "Hoefler Text", "Cambria", "Didot", "Baskerville old face", "Garamond", "Times New Roman", serif;Didot, Heveltica, serif;
+	background: url(http://sustainability-mapping.com/10-Subtle-Textures09.jpg) repeat;
+}
+header {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100px;
+	background-color: #c1dad6;
+	font-stretch:9;
+	box-shadow: 10px 10px 5px 5px #999;
+	z-index: 50;
 
-	}
-	.headerLeft, .headerRight {
-		float: left;
-		width: 40%;
-		color: white;
-		margin: 0px 25px 0px 25px;
-	}	
-	.headerLeft {
-		float: left;
-	}
-	.headerRight {
-		float: right;
-	}
-	.columnLeft, .columnRight {		
-		margin: 120px 0px 0px 10px;
-	}
-	.columnLeft {
-		width: 20%;
-		float: left;
-		color: white;
-				background-color: #eeeceb;
-	}
+}
+.headerLeft, .headerRight {
+	float: left;
+	width: 40%;
+	color: white;
+	margin: 0px 25px 0px 25px;
+}	
+.headerLeft {
+	float: left;
+}
+.headerRight {
+	float: right;
+}
+.columnLeft, .columnRight {		
+	margin: 120px 0px 0px 10px;
+}
+.columnLeft {
+	width: 20%;
+	float: left;
+	color: white;
+			background-color: #eeeceb;
+}
 
-	.columnRight {
-		width: 75%;
-		float: left;
-		color: white;
-				background-color: #eeeceb;
-	}
-	h1, h2, h3 {
-		color: white;
-	}	
-	a {
-		color: white;
-	}
-	a:hover {
-		color: grey;
-	}
-	.headerCenter {
-		height: 120px;
-		width 20%;
-	}
-	nav {
-		text-align: right;
-		width: 100%;
-		float: right;
-		margin: 24px 0px 19px 0px;
-		font-size: 75%;
-	}
-	#map {
-		border-style: solid;
-		border-color: #e8d0a9;	
-		height: 450px;
-		width: 80%;
-	}
+.columnRight {
+	width: 75%;
+	float: left;
+	color: white;
+			background-color: #eeeceb;
+}
+h1, h2, h3 {
+	color: white;
+}	
+a {
+	color: white;
+}
+a:hover {
+	color: grey;
+}
+.headerCenter {
+	height: 120px;
+	width 20%;
+}
+nav {
+	text-align: right;
+	width: 100%;
+	float: right;
+	margin: 24px 0px 19px 0px;
+	font-size: 75%;
+}
+#map {
+	border-style: solid;
+	border-color: #e8d0a9;	
+	height: 450px;
+	width: 80%;
+}
 
-	</style>
- 	<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+</style>
 
-	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css">
-	<script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>	
-
-	<script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.4"></script>
+<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css">
+<script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>	
+<script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.4"></script>
 
 
 <!--
@@ -105,7 +104,7 @@
             map.addControl(layersControl);
 
 -->
-
+<!--
 <script>
 		var map;
 
@@ -124,22 +123,23 @@
         		map.addLayer(layer);
 		});
 </script>
-
+-->
 
 <script>
-		var map;
-		var geojson;
-		var layerControl;
+	var map;
 
-		var layer = new L.TileLayer.WMS("http://tigerweb.geo.census.gov/ArcGIS/services/tigerWMS/MapServer/WMSServer", 
-        	{
-			  layers: 'Census Tracts',
-			  format: 'image/png',
-			  transparent: true,
-			  attribution: 'tigerweb.geo.census.gov'
-			});
-			layerControl.addOverlay (layer, "Census Tracts");
-		});
+	var layerControl;
+
+	var layer = new L.TileLayer.WMS("http://tigerweb.geo.census.gov/ArcGIS/services/tigerWMS/MapServer/WMSServer", 
+	{
+	  layers: 'Census Tracts',
+	  format: 'image/png',
+	  transparent: true,
+	  attribution: 'tigerweb.geo.census.gov'
+	});
+	
+	layerControl.addOverlay(layer, "Census Tracts");
+		
 
         $(document).ready(function () {
 
@@ -164,8 +164,8 @@
 			};
 
 			layerControl = L.control.layers(baseLayers, overlays).addTo(map);
-		});
-	</script>
+	});
+</script>
 
 
 <body>
