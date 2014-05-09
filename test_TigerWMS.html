@@ -42,14 +42,14 @@ header {
 	width: 20%;
 	float: left;
 	color: white;
-			background-color: #eeeceb;
+	background-color: #eeeceb;
 }
 
 .columnRight {
 	width: 75%;
 	float: left;
 	color: white;
-			background-color: #eeeceb;
+	background-color: #eeeceb;
 }
 h1, h2, h3 {
 	color: white;
@@ -162,7 +162,6 @@ nav {
 				transparent: true,
 				attribution: 'tigerweb.geo.census.gov'
 			});
-			
 		   	var overCounties = new L.TileLayer.WMS("http://tigerweb.geo.census.gov/ArcGIS/services/tigerWMS/MapServer/WMSServer",
                     	{
 	                        layers: 'Counties',
@@ -170,7 +169,6 @@ nav {
 	                        transparent: true,
 	                        attribution: 'tigerweb.geo.census.gov'
                     	});
-                    	
 			var overCongress = new L.TileLayer.WMS("http://tigerweb.geo.census.gov/ArcGIS/services/tigerWMS/MapServer/WMSServer",
                     	{
 	                        layers: '113th Congressional Districts',
@@ -193,8 +191,7 @@ nav {
 			});
 
 			var baseLayers = {
-				"Show Terrain": baseTerrain,
-				"Show Toner": baseToner,
+				"Show Terrain": baseTerrainBackground,
 				"Show Surfer Gray": baseOpenGray,
 				"Show OSM": baseMapQuestOSM,
 				"Show Aerial": baseMapQuestAerial
