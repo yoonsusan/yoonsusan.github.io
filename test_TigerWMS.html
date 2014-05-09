@@ -128,17 +128,8 @@ nav {
 <script>
 	var map;
 
-	var layerControl;
-
-	var layer = new L.TileLayer.WMS("http://tigerweb.geo.census.gov/ArcGIS/services/tigerWMS/MapServer/WMSServer", 
-	{
-	  layers: 'Census Tracts',
-	  format: 'image/png',
-	  transparent: true,
-	  attribution: 'tigerweb.geo.census.gov'
-	});
-	
-	layerControl.addOverlay(layer, "Census Tracts");
+//	var layerControl;
+//	layerControl.addOverlay(layer, "Census Tracts");
 		
 
         $(document).ready(function () {
@@ -146,6 +137,14 @@ nav {
 			var baseTerrain = new L.StamenTileLayer("terrain");
 			var baseToner = new L.StamenTileLayer ("toner");
 
+			var overCensus = new L.TileLayer.WMS("http://tigerweb.geo.census.gov/ArcGIS/services/tigerWMS/MapServer/WMSServer", 
+			{
+				layers: 'Census Tracts',
+				format: 'image/png',
+				transparent: true,
+				attribution: 'tigerweb.geo.census.gov'
+			});
+	
 			var map = L.map('map', {
 				center: [40.73, -73.99],
 				zoom: 10,
@@ -160,7 +159,7 @@ nav {
 		
 
 			var overlays = {
-//				"Show Capital Projects": geojson
+				"Show Capital Projects": overCensus
 			};
 
 			layerControl = L.control.layers(baseLayers, overlays).addTo(map);
