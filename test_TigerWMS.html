@@ -136,12 +136,14 @@ nav {
 
 			var baseTerrain = new L.StamenTileLayer("terrain");
 			var baseToner = new L.StamenTileLayer ("toner");
-			
 			var baseOpenGray = new L.TileLayer('http://openmapsurfer.uni-hd.de/tiles/roadsg/x={x}&y={y}&z={z}', 
 			{
 				attribution: '<a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
 			});
-
+			var baseMapQuestOSM = L.tileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpeg', {
+				attribution: 'Tiles Courtesy of <a href="http://www.mapquest.com/">MapQuest</a> &mdash; Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+				subdomains: '1234'
+			});
 
 			var overCensusTract = new L.TileLayer.WMS("http://tigerweb.geo.census.gov/ArcGIS/services/tigerWMS/MapServer/WMSServer", 
 			{
@@ -176,7 +178,8 @@ nav {
 			var baseLayers = {
 				"Show Terrain": baseTerrain,
 				"Show Toner": baseToner,
-				"Show Surfer Gray": baseOpenGray
+				"Show Surfer Gray": baseOpenGray,
+				"Show OSM": baseMapQuestOSM
 			};		
 
 			var overlays = {
