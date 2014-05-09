@@ -159,6 +159,18 @@
 		  transparent: true,
 		  attribution: TigerAttribution
 		});
+		
+		
+
+		var layer = new L.TileLayer.WMS("http://webservices.nationalatlas.gov/wms/government?SERVICE=WMS&REQUEST=GetCapabilities", 
+		{
+    		 			format: 'image/png',
+    		      transparent: true,
+    		      attribution: 'National Atlas'
+      		});
+		
+		map.addLayer(layer);
+		});
 -->
 	<script>
 		var map;
