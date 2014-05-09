@@ -166,11 +166,7 @@
 		
 		$(document).ready(function () {
   	  
-	 	  	map = L.map('map', {
-  				center: [40.73, -73.99],
-  				zoom: 10,
-  				layers: [baseTerrain]
-  		});
+	 	  	map = L.map('map', [40.73, -73.99], 10);
   	
 			var baseTerrain = new L.StamenTileLayer("terrain");
 			
