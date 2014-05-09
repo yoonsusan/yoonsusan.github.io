@@ -1,0 +1,17 @@
+   
+   
+   
+       var overlayMaps = {
+                "States": censusStates,
+                "Counties": censusCounties,
+                "Census Tracts": censusTracts,
+                "Block Groups": censusBlockGrps,
+                "Census Blocks": censusBlocks,
+                "Zips Census": censusZips,
+            };
+   
+    var layersControl = new L.Control.Layers(baseMaps, overlayMaps,
+            {
+                collapsed: !L.Browser.touch
+            });
+            map.addControl(layersControl);
