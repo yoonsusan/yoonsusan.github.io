@@ -127,10 +127,17 @@ nav {
 
 <script>
 	var map;
-
-//	var layerControl;
-//	layerControl.addOverlay(layer, "Census Tracts");
-		
+	var geojson;
+	var layerControl;
+	
+		$.getJSON('test_routes.geojson', function (data) {
+			geojson = L.geoJson(data, {
+				onEachFeature: function (feature, layer) {
+					layer.bindPopup('line: ' + feature.properties.line);
+				}
+			})
+			layerControl.addOverlay (geojson, "Show NYCT Routes");
+		});
 
         $(document).ready(function () {
 
@@ -162,6 +169,7 @@ nav {
 				transparent: true,
 				attribution: 'tigerweb.geo.census.gov'
 			});
+		
 		   	var overCounties = new L.TileLayer.WMS("http://tigerweb.geo.census.gov/ArcGIS/services/tigerWMS/MapServer/WMSServer",
                     	{
 	                        layers: 'Counties',
