@@ -169,6 +169,14 @@ nav {
 				transparent: true,
 				attribution: 'tigerweb.geo.census.gov'
 			});
+			var overCyclone = new L.TileLayer.WMS("http://nowcoast.noaa.gov/wms/com.esri.wms.Esrimap/geolinks?service=wms&version=1.1.1&request=GetCapabilities", 
+			{
+				layers: 'tc_warn_breakpoints',
+				format: 'image/png',
+				transparent: true,
+				attribution: ' '
+			});
+			
 		
 		   	var overCounties = new L.TileLayer.WMS("http://tigerweb.geo.census.gov/ArcGIS/services/tigerWMS/MapServer/WMSServer",
                     	{
@@ -210,6 +218,7 @@ nav {
 				"Show Congress Districts": overCongress,
 				"Show Counties": overCounties,
 				"Show NYS Assembly": overSLDL,
+				"Show Cyclone Breakpoint": overCyclone
 			};
 
 			layerControl = L.control.layers(baseLayers, overlays).addTo(map);
