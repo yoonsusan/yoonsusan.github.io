@@ -184,8 +184,13 @@ nav {
 				transparent: true,
 				attribution: ' '
 			});
-			
-		
+			var overImpervious = new L.TileLayer.WMS("http://gis1.usgs.gov/arcgis/rest/services/gap/GAP_Land_Cover_NVC_Formation_Landuse/MapServer", 
+			{
+				layers: 'Impervious_Surface_2006',
+				format: 'image/png',
+				transparent: true,
+				attribution: ' '
+			});
 		   	var overCounties = new L.TileLayer.WMS("http://tigerweb.geo.census.gov/ArcGIS/services/tigerWMS/MapServer/WMSServer",
                     	{
 	                        layers: 'Counties',
@@ -226,7 +231,9 @@ nav {
 				"Show Congress Districts": overCongress,
 				"Show Counties": overCounties,
 				"Show NYS Assembly": overSLDL,
-				"Show Cyclone Breakpoint": overCyclone
+				"Show Cyclone Breakpoint": overCyclone,
+				"Show FEMA Hazard Zones": overFEMAZone,
+				"Show Impervious Surface": overImpervious
 			};
 
 			layerControl = L.control.layers(baseLayers, overlays).addTo(map);
