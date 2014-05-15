@@ -151,8 +151,10 @@ nav {
 	});
 
 
-	$.getJSON('oem.geojson', function (data) {
-		geojson = L.geoJson(data);
+	$.getJSON('oem_2013.geojson', function (data) {
+		geojson = L.geoJson(data, {
+			style: styleRoutes;
+		})
 		layerControl.addOverlay (geojson, "Show Flood Zones");
 	});
 
