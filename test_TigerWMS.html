@@ -160,13 +160,24 @@ nav {
 		geojson = L.geoJson(data, {
 			style: function(feature) {
 			        switch (feature.properties.zone) {
-			            case '1': return {color: "#ff0000"};
-			            case '0':   return {color: "#0000ff"};
+			            case '1': return {
+			            	color: "#e31a1c",
+			            	weight: .1,
+			            	fillOpacity: 0.7,
+			            	fillColor: "e31a1c"
+			            };
 			        }
 			}
 		})
 		layerControl.addOverlay (geojson, "Show Flood Zones");
 	});
+
+
+
+
+
+
+
 
 
         $(document).ready(function () {
