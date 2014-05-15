@@ -138,7 +138,7 @@ nav {
 
 		$.getJSON('test_routes.geojson', function (data) {
 			geojson = L.geoJson(data, {
-				style: myStyle;
+				style: myStyle,
 				
 				onEachFeature: function (feature, layer) {
 					layer.bindPopup('line: ' + feature.properties.line);
