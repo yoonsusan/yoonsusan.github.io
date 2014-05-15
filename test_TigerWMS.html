@@ -133,6 +133,14 @@ nav {
 	});
 
 
+	$.getJSON('LiMWA.geojson', function (data) {
+		geojson = L.geoJson(data, {
+			style: styleRoutes;
+			}
+		})
+		layerControl.addOverlay (geojson, "Show NYCT Routes");
+	});
+
         $(document).ready(function () {
 
 //			var baseTerrain = new L.StamenTileLayer("terrainBackground");
