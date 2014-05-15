@@ -136,7 +136,6 @@ nav {
 	$.getJSON('LiMWA.geojson', function (data) {
 		geojson = L.geoJson(data, {
 			style: styleRoutes
-			}
 		})
 		layerControl.addOverlay (geojson, "Show Limits of Moderate Wave Action");
 	});
