@@ -151,10 +151,9 @@ nav {
 	});
 
 
-	$.getJSON('flood_zones.geojson', function (data) {
+	$.getJSON('oem.geojson', function (data) {
 		geojson = L.geoJson(data, {
-    			pointToLayer: function (feature, latlng) {
-        		return L.circleMarker(latlng, styleStations);
+ 			style: styleRoutes,
     			}
 		})
 		layerControl.addOverlay (geojson, "Show Flood Zones");
