@@ -124,15 +124,7 @@ nav {
 
 		$.getJSON('test_routes.geojson', function (data) {
 			geojson = L.geoJson(data, {
-<<<<<<< HEAD
-<<<<<<< HEAD
-				style: myStyle,
-=======
 				style: styleRoutes,
->>>>>>> 5c63a12b920826e5b7d5505599bb3d6dbc4f58e7
-=======
-				style: styleRoutes,
->>>>>>> 86c2a7413ca6dc7339ee630c63c4b3c83cb2a0aa
 				
 				onEachFeature: function (feature, layer) {
 					layer.bindPopup('division: ' + feature.properties.division);
@@ -140,6 +132,7 @@ nav {
 			})
 			layerControl.addOverlay (geojson, "Show NYCT Routes");
 		});
+
 
         $(document).ready(function () {
 
