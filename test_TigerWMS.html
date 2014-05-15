@@ -158,7 +158,12 @@ nav {
 
 	$.getJSON('oem_2013.geojson', function (data) {
 		geojson = L.geoJson(data, {
-			style: styleRoutes
+			style: function(feature) {
+			        switch (feature.properties.zone) {
+			            case '1': return {color: "#ff0000"};
+			            case '0':   return {color: "#0000ff"};
+			        }
+			}
 		})
 		layerControl.addOverlay (geojson, "Show Flood Zones");
 	});
