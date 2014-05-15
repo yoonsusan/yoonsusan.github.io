@@ -161,10 +161,28 @@ nav {
 			style: function(feature) {
 			        switch (feature.properties.zone) {
 			            case '1': return {
-			            	color: "#e31a1c",
+			            	color: red,
 			            	weight: .1,
 			            	fillOpacity: 0.7,
+			            	fillColor: red
+			            };
+			            case '0': return {
+			            	color: "#e31a1c",
+			            	weight: .1,
+			            	fillOpacity: 0,
 			            	fillColor: "e31a1c"
+			            };
+			            case '2': return {
+			            	color: orange,
+			            	weight: .1,
+			            	fillOpacity: 0,
+			            	fillColor: orange
+			            };
+			            case '3': return {
+			            	color: white,
+			            	weight: .1,
+			            	fillOpacity: 0,
+			            	fillColor: white
 			            };
 			        }
 			}
