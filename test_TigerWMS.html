@@ -129,9 +129,17 @@ nav {
 	var map;
 	var geojson;
 	var layerControl;
-	
+	var myStyle = {
+	    "color": "#ff7800",
+	    "weight": 5,
+	    "opacity": 0.65
+	};
+
+
 		$.getJSON('test_routes.geojson', function (data) {
 			geojson = L.geoJson(data, {
+				style: myStyle;
+				
 				onEachFeature: function (feature, layer) {
 					layer.bindPopup('line: ' + feature.properties.line);
 				}
