@@ -119,7 +119,7 @@
 
             $(document).ready(function () {
                 map = L.map('map').setView([40.70, -73.96], 11);
-                var layer = new L.StamenTileLayer("terrain");
+                var layer = new L.StamenTileLayer("terrainBackground");
 					map.addLayer(layer);
 				var markers = L.markerClusterGroup().addTo(map);
 			
