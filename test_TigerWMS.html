@@ -122,16 +122,16 @@ nav {
 	};
 	
 
-		$.getJSON('test_routes.geojson', function (data) {
-			geojson = L.geoJson(data, {
-				style: styleRoutes,
-				
-				onEachFeature: function (feature, layer) {
-					layer.bindPopup('division: ' + feature.properties.division);
-				}
-			})
-			layerControl.addOverlay (geojson, "Show NYCT Routes");
-		});
+	$.getJSON('test_routes.geojson', function (data) {
+		geojson = L.geoJson(data, {
+			style: styleRoutes,
+			
+			onEachFeature: function (feature, layer) {
+				layer.bindPopup('division: ' + feature.properties.division);
+			}
+		})
+		layerControl.addOverlay (geojson, "Show NYCT Routes");
+	});
 
 
         $(document).ready(function () {
