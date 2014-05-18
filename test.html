@@ -232,12 +232,8 @@ nav {
 			});
 			
 			
-			var overCensusTract = new L.TileLayer.WMS("http://tigerweb.geo.census.gov/ArcGIS/services/tigerWMS/MapServer/WMSServer", 
-			{
-				layers: 'Census Tracts',
-				format: 'image/png',
-				transparent: true,
-				attribution: 'tigerweb.geo.census.gov'
+			var overFEMAZones = new L.geoJson(fema_zones.geoJson, {
+				
 			});
 			
 			var overCyclone = new L.TileLayer.WMS("http://nowcoast.noaa.gov/wms/com.esri.wms.Esrimap/geolinks?service=wms&version=1.1.1&request=GetCapabilities", 
