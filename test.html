@@ -181,7 +181,7 @@ nav {
 							color: 'green',
 							weight: .1,
 							fillOpacity: 0.3,
-							fillColor: 'blue'
+							fillColor: 'green'
 						};
 						break;
 						case 'V': return {
@@ -194,7 +194,7 @@ nav {
 				}
 			}	
 		})
-		layerControl.addOverlay (geojson, "Show Limits of Moderate Wave Action");
+		layerControl.addOverlay (geojson, "Show FEMA Flood Areas");
 	});
 	
 	$.getJSON('oem_2013.geojson', function (data) {
