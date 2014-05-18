@@ -247,13 +247,7 @@ nav {
 				transparent: true,
 				attribution: ' '
 			});
-			var overImpervious = new L.TileLayer.WMS("http://gis1.usgs.gov/arcgis/rest/services/gap/GAP_Land_Cover_NVC_Formation_Landuse/MapServer", 
-			{
-				layers: 'Impervious_Surface_2006',
-				format: 'image/png',
-				transparent: true,
-				attribution: ' '
-			});
+
 		   	var overCounties = new L.TileLayer.WMS("http://tigerweb.geo.census.gov/ArcGIS/services/tigerWMS/MapServer/WMSServer",
                     	{
 	                        layers: 'Counties',
@@ -269,13 +263,7 @@ nav {
 	                        transparent: true,
 	                        attribution: 'tigerweb.geo.census.gov'
                     	});
-            var overSLDL = new L.TileLayer.WMS("http://tigerweb.geo.census.gov/ArcGIS/services/tigerWMS/MapServer/WMSServer",
-                    	{
-	                        layers: '2013 State Legislative Districts - Lower',
-	                        format: 'image/png',
-	                        transparent: true,
-	                        attribution: 'tigerweb.geo.census.gov'
-                    	});
+
 		
 			var map = L.map('map', {
 				center: [40.73, -73.99],
