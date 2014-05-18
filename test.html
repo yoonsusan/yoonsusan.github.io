@@ -238,10 +238,7 @@ nav {
 			var baseShadedRelief = new L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Shaded_Relief/MapServer/tile/{z}/{y}/{x}', {
 				attribution: 'Tiles &copy; Esri &mdash; Source: Esri'
 			});
-			var baseOpenGray = new L.TileLayer('http://openmapsurfer.uni-hd.de/tiles/roadsg/x={x}&y={y}&z={z}', 
-			{
-				attribution: '<a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
-			});
+
 			var baseAcetate = new L.tileLayer('http://a{s}.acetate.geoiq.com/tiles/terrain/{z}/{x}/{y}.png', {
 				attribution: '&copy;2012 Esri & Stamen, Data from OSM and Natural Earth',
 				subdomains: '0123',
@@ -306,7 +303,6 @@ nav {
 			var baseLayers = {
 				"Show Terrain": baseTerrainBackground,
 				"Show Shaded Relief": baseShadedRelief,
-				"Show Gray": baseOpenGray,
 				"Show Aerial": baseMapQuestAerial,
 				"Shoe Acetate": baseAcetate
 			};		
