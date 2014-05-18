@@ -232,7 +232,7 @@ nav {
 			});
 			
 			
-			var overFEMAZones = new L.geoJson(fema_zones.geoJson, {
+			var overFEMAZones = new L.geoJson('fema_zones.geoJson', {
 				
 			});
 			
@@ -278,7 +278,7 @@ nav {
 				"Show Congress Districts": overCongress,
 				"Show Counties": overCounties,
 				"Show Cyclone Breakpoint": overCyclone,
-				"Show Impervious Surface": overImpervious
+				"Show FEMA Flood Zones" : overFEMAZones
 			};
 
 			layerControl = L.control.layers(baseLayers, overlays).addTo(map);
