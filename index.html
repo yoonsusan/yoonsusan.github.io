@@ -153,22 +153,17 @@ nav {
 	$.getJSON('cp_dashboard.geojson', function (data) {
 		geojson = L.geoJson(data, 
 		{
-                        pointToLayer: function (feature, latlng) {
-        		return L.circleMarker(latlng, styleStations);
+                        pointToLayer: function (feature, latlng) 
+                        {
+        			return L.circleMarker(latlng, styleStations);
     			},
 
-                        onEachFeature: popup    
-                        
-                        
-                        onEachFeature: function (feature, layer) {
-							/* var agency = */
-                   
+    			onEachFeature: function (feature, layer) 
+    			{
 				var content = '<p>agency: ' + feature.properties.agency + '</p>';
                             	content = content + '<a href="http://web.mta.info/capitaldashboard/CPDHome.html">Capital Projects</a>';
-                            	layer.bindPopup(content, popupOptions);                       
-						}
-                        
-                        
+                            	layer.bindPopup(content);                   
+			}
 		});
 		markers.addLayer(geojson);
 		layerControl.addOverlay (markers, "Show Capital Projects");
