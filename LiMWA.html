@@ -94,7 +94,12 @@ nav {
 <script>
 	var map;
 	var geojson;
-
+	var styleLimits = 
+	{
+	    "color": "purple",
+	    "weight": 1.8,
+	    "opacity": 0.9
+	};
  	$(document).ready(function () 
  	{
 	        map = L.map('map').setView([40.70, -73.96], 11);
@@ -114,13 +119,11 @@ nav {
 
 </script>
 
-
 <body>
 	<header>
 		<div class="headerLeft">
 			<h2> Vulnerability Mapping <br/> Of New York City</h2>
 		</div>
-
 		<div class="headerRight">
 			<h3>
 			<nav>
