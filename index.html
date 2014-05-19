@@ -307,9 +307,10 @@ nav {
 						var content = '<a href="http://MTA.info/">hyperlink</a>';
 	        	                    	layer.bindPopup(content, popupOptions);                       
 					}
-				}
-                    	});
-					markers.addLayer(geojson);
+				});
+			});
+				
+			markers.addLayer(geojson);
            
 			var baseLayers = {
 				"Show Terrain": baseTerrainBackground,
