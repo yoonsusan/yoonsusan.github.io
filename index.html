@@ -158,10 +158,14 @@ nav {
 		};
 		geojson = L.geoJson(data, 
 		{
-			onEachFeature: function (feature, layer) 
-			{
-				layer.bindPopup('agency: ' + feature.properties.agency);
-			}
+		
+                        onEachFeature: function (feature, layer) 
+                        {
+	                   
+				var content = '<a href="http://MTA.info/">hyperlink</a>';
+	                      		layer.bindPopup(content, popupOptions);       
+
+                        }
 		})
 		markers.addLayer(geojson);
 		layerControl.addOverlay (markers, "Show CP Markers");
