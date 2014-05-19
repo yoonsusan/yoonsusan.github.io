@@ -296,7 +296,21 @@ nav {
 				zoom: 12,
 				layers: [baseTerrainBackground]
 			});
-
+			var markers = L.markerClusterGroup().addTo(map);
+			$.getJSON('http://yoonsusan.cartodb.com/api/v2/sql?q=SELECT * FROM CP_Dashboard&format=GeoJSON', function (data) {
+				console.log("got geojson");
+				var popupOptions = {
+						minWidth: 150
+				};
+				var geojson = L.geoJson(data, {
+	                        	onEachFeature: function (feature, layer) {
+						var content = '<a href="http://MTA.info/">hyperlink</a>';
+	        	                    	layer.bindPopup(content, popupOptions);                       
+					}
+				}
+                    	});
+					markers.addLayer(geojson);
+           
 			var baseLayers = {
 				"Show Terrain": baseTerrainBackground,
 				"Show Shaded Relief": baseShadedRelief,
