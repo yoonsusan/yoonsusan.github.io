@@ -160,7 +160,7 @@ nav {
 		{
 			if (feature.properties && feature.properties.name) 
 			{
-				layer.bindPopup(feature.properties.name);
+				layer.bindPopup(feature.properties.name)
 			}
 		}
 		geojson = L.geoJson(data, 
@@ -169,7 +169,7 @@ nav {
                         onEachFeature: popup    
 
   
-		})
+		});
 		markers.addLayer(geojson);
 		layerControl.addOverlay (markers, "Show Capital Projects");
 	});
