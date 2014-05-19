@@ -151,24 +151,18 @@ nav {
 	});
 	var markers = L.markerClusterGroup()
 	$.getJSON('cp_dashboard.geojson', function (data) {
-		var popupOptions = 
-		{
-			minWidth: 150,
-			"fillColor": 'blue'
-		};
-		function popup(feature, layer) 
-		{
-			if (feature.properties && feature.properties.name) 
-			{
-				layer.bindPopup(feature.properties.name)
-			}
-		}
+
 		geojson = L.geoJson(data, 
 		{
-		
+                        style: styleStations,
+	      		function popup(feature, layer) 
+			{
+				if (feature.properties && feature.properties.name) 
+				{
+					layer.bindPopup(feature.properties.name)
+				}
+			}
                         onEachFeature: popup    
-
-  
 		});
 		markers.addLayer(geojson);
 		layerControl.addOverlay (markers, "Show Capital Projects");
