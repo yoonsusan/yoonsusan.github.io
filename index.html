@@ -156,24 +156,23 @@ nav {
 			minWidth: 150,
 			"fillColor": 'blue'
 		};
+		function popup(feature, layer) 
+		{
+			if (feature.properties && feature.properties.name) 
+			{
+				layer.bindPopup(feature.properties.name);
+			}
+		}
 		geojson = L.geoJson(data, 
 		{
 		
-                        onEachFeature: function (feature, layer) 
-                        {
-	                   
-				var content = '<a href="http://MTA.info/">hyperlink</a>';
-	                      		layer.bindPopup(content, popupOptions);       
+                        onEachFeature: popup;       
 
-                        }
+  
 		})
 		markers.addLayer(geojson);
 		layerControl.addOverlay (markers, "Show CP Markers");
 	});
-	
-	
-
-			
 	
 	
 	$.getJSON('subway_stations.geojson', function (data) {
