@@ -160,7 +160,9 @@ nav {
 		}
 		geojson = L.geoJson(data, 
 		{
-                        style: styleStations,
+                        pointToLayer: function (feature, latlng) {
+        		return L.circleMarker(latlng, styleStations);
+    			},
 
                         onEachFeature: popup    
 		});
