@@ -84,10 +84,6 @@ nav {
 	float: center;
 }
 
-#navLinks {
-	padding: 50px 150px 50px 150px;
-}
-
 </style>
 
 <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
@@ -313,13 +309,13 @@ nav {
 				"Show Terrain": baseTerrainBackground,
 				"Show Shaded Relief": baseShadedRelief,
 				"Show Aerial": baseMapQuestAerial,
-				"Shoe Acetate": baseAcetate
+				"Show Acetate": baseAcetate
 			};		
 
 			var overlays = {
 				"Show Congress Districts": overCongress,
 				"Show Counties": overCounties,
-				"Show Cyclone Breakpoint": overCyclone
+//				"Show Cyclone Breakpoint": overCyclone
 			};
 
 			layerControl = L.control.layers(baseLayers, overlays).addTo(map);
@@ -335,11 +331,13 @@ nav {
 
 		<div class="headerRight">
 			<nav>
-			<div class="navLinks"></div>
-				<a class="navLinks" href=test_Video.html>  LiMWA </a>
-				<a class="navLinks" href=CP/index.html>   Projects Cluster</a>
-				<a class="navLinks" href=test_Layers.html>TEST Layers</a>
-				<a class="navLinks" href=SVOI/index.html>NOAA SVOI </a>
+			<div>
+				<a href=index.html>index.html</a>
+				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+				<a href=LiMWA.html>   Projects Cluster</a>
+				<a href=FEMA.html>TEST Layers</a>
+				<a href=OEM.html>OEM </a>
+				<a href=SVOI.html>SVOI</a>
 			</div>
 			</nav>	
 		</div>
