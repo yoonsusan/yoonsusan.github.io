@@ -248,24 +248,26 @@ nav {
         $(document).ready(function () {
 
 //			var baseTerrain = new L.StamenTileLayer("terrainBackground");
-			var baseTerrainBackground = new L.tileLayer('http://{s}.tile.stamen.com/terrain-background/{z}/{x}/{y}.png', {
+			var baseTerrainBackground = new L.tileLayer('http://{s}.tile.stamen.com/terrain-background/{z}/{x}/{y}.png', 
+			{
 				attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
 				subdomains: 'abcd'
 			});
-			var baseShadedRelief = new L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Shaded_Relief/MapServer/tile/{z}/{y}/{x}', {
+			var baseShadedRelief = new L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Shaded_Relief/MapServer/tile/{z}/{y}/{x}', 
+			{
 				attribution: 'Tiles &copy; Esri &mdash; Source: Esri'
 			});
 
-			var baseAcetate = new L.tileLayer('http://a{s}.acetate.geoiq.com/tiles/terrain/{z}/{x}/{y}.png', {
+			var baseAcetate = new L.tileLayer('http://a{s}.acetate.geoiq.com/tiles/terrain/{z}/{x}/{y}.png', 
+			{
 				attribution: '&copy;2012 Esri & Stamen, Data from OSM and Natural Earth',
 				subdomains: '0123',
 			});
-			var baseMapQuestAerial = new L.tileLayer('http://oatile{s}.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.jpg', {
+			var baseMapQuestAerial = new L.tileLayer('http://oatile{s}.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.jpg', 
+			{
 				attribution: 'Tiles Courtesy of <a href="http://www.mapquest.com/">MapQuest</a> &mdash; Portions Courtesy NASA/JPL-Caltech and U.S. Depart. of Agriculture, Farm Service Agency',
 				subdomains: '1234'
 			});
-			
-	
 			var overCyclone = new L.TileLayer.WMS("http://nowcoast.noaa.gov/wms/com.esri.wms.Esrimap/geolinks?service=wms&version=1.1.1&request=GetCapabilities", 
 			{
 				layers: 'tc_warn_breakpoints',
@@ -273,7 +275,6 @@ nav {
 				transparent: true,
 				attribution: ' '
 			});
-
 		   	var overCounties = new L.TileLayer.WMS("http://tigerweb.geo.census.gov/ArcGIS/services/tigerWMS/MapServer/WMSServer",
                     	{
 	                        layers: 'Counties',
@@ -296,18 +297,24 @@ nav {
 				zoom: 12,
 				layers: [baseTerrainBackground]
 			});
+			
 			var markers = L.markerClusterGroup().addTo(map);
-			$.getJSON('http://yoonsusan.cartodb.com/api/v2/sql?q=SELECT * FROM CP_Dashboard&format=GeoJSON', function (data) {
+			
+			$.getJSON('http://yoonsusan.cartodb.com/api/v2/sql?q=SELECT * FROM CP_Dashboard&format=GeoJSON', function (data) 
+			{
 				console.log("got geojson");
-				var popupOptions = {
+				var popupOptions = 
+				{
 						minWidth: 150
 				};
-				var geojson = L.geoJson(data, {
-	                        	onEachFeature: function (feature, layer) {
+				var geojson = L.geoJson(data, 
+				{
+	                        	onEachFeature: function (feature, layer) 
+	                        	{
 						var content = '<a href="http://MTA.info/">hyperlink</a>';
 	        	                    	layer.bindPopup(content, popupOptions);                       
 					}
-				});
+				})
 			});
 				
 			markers.addLayer(geojson);
