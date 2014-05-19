@@ -95,9 +95,12 @@ nav {
 	var map;
 	var geojson;
 
+ $(document).ready(function () {
+        
+        map = L.map('map').setView([40.70, -73.96], 11);
 
- var layer = new L.StamenTileLayer("toner");
-    map.addLayer(layer);
+ 	var layer = new L.StamenTileLayer("toner");
+		 map.addLayer(layer);
                 
 	$.getJSON('fema_zones.geojson', function (data) {
 		geojson = L.geoJson(data, {
@@ -128,6 +131,7 @@ nav {
 			}	
 		}).addTo(map);
 	});
+});
 
 </script>
 
