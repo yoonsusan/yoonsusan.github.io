@@ -246,31 +246,7 @@ nav {
 		})
 		layerControl.addOverlay (geojson, "Show Evacuation Zones");
 	});
-	var map = L.map('map', 
-	{
-		center: [40.73, -73.99],
-		zoom: 12
-	});
-				
-	var markers = L.markerClusterGroup().addTo(map);
-	
-	$.getJSON('CP_in_Folder.geojson', function (data) 
-	{
-		var popupOptions = 
-		{
-				minWidth: 150
-		};
-		var geojson = L.geoJson(data, 
-		{
-                	onEachFeature: function (feature, layer) 
-                	{
-				var content = '<a href="http://MTA.info/">hyperlink</a>';
-	                    	layer.bindPopup(content, popupOptions);                       
-			}
-		});
-		markers.addLayer(geojson);
-	});
-	layerControl.addOverlay (markers, "Show Evacuation Zones");
+
 	
 	
 
@@ -317,7 +293,32 @@ nav {
                         transparent: true,
                         attribution: 'tigerweb.geo.census.gov'
             	});
-
+		var map = L.map('map', 
+		{
+			center: [40.73, -73.99],
+			zoom: 12,
+			layer:[baseTerrainBackground]
+		});
+					
+		var markers = L.markerClusterGroup().addTo(map);
+		
+		$.getJSON('CP/CP_in_Folder.geojson', function (data) 
+		{
+			var popupOptions = 
+			{
+					minWidth: 150
+			};
+			var geojson = L.geoJson(data, 
+			{
+	                	onEachFeature: function (feature, layer) 
+	                	{
+					var content = '<a href="http://MTA.info/">hyperlink</a>';
+		                    	layer.bindPopup(content, popupOptions);                       
+				}
+			});
+			markers.addLayer(geojson);
+		});
+	layerControl.addOverlay (markers, "Show Evacuation Zones");
 		var baseLayers = {
 			"Show Terrain": baseTerrainBackground,
 			"Show Shaded Relief": baseShadedRelief,
