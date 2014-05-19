@@ -157,11 +157,9 @@ nav {
                         {
         			return L.circleMarker(latlng, styleStations);
     			},
-
     			onEachFeature: function (feature, layer) 
     			{
-				var content = '<p>agency: ' + feature.properties.agency + '</p>';
-                            	content = content + '<a href="http://web.mta.info/capitaldashboard/CPDHome.html">Capital Projects</a>';
+				var content = '<a href="http://web.mta.info/capitaldashboard/CPDHome.html">Capital Projects</a>';
                             	layer.bindPopup(content);                   
 			}
 		});
