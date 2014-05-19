@@ -1,4 +1,4 @@
-   
+     
 <!DOCTYPE html>
 <html>
 <head>
@@ -94,9 +94,6 @@ nav {
 <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>	
 <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.4"></script>
 
-<link rel="stylesheet" href="http://leaflet.github.io/Leaflet.markercluster/dist/MarkerCluster.css" />
-<link rel="stylesheet" href="http://leaflet.github.io/Leaflet.markercluster/dist/MarkerCluster.Default.css" />
-<script src="http://leaflet.github.io/Leaflet.markercluster/dist/leaflet.markercluster-src.js"></script>
 
 <!--
       
@@ -141,8 +138,8 @@ nav {
 	    "opacity": 0.9
 	};
 
-	$.getJSON('test_routes.geojson', function (data) 
-	{
+
+	$.getJSON('test_routes.geojson', function (data) {
 		geojson = L.geoJson(data, {
 			style: styleRoutes,
 			
@@ -154,13 +151,10 @@ nav {
 	});
 
 
-	$.getJSON('subway_stations.geojson', function (data) 
-	{
-		geojson = L.geoJson(data, 
-		{
-    			pointToLayer: function (feature, latlng) 
-    			{
-        			return L.circleMarker(latlng, styleStations);
+	$.getJSON('subway_stations.geojson', function (data) {
+		geojson = L.geoJson(data, {
+    			pointToLayer: function (feature, latlng) {
+        		return L.circleMarker(latlng, styleStations);
     			}
 		})
 		layerControl.addOverlay (geojson, "Show NYCT Stations");
@@ -172,7 +166,6 @@ nav {
 		})
 		layerControl.addOverlay (geojson, "Show Limits of Moderate Wave Action");
 	});
-	
 	$.getJSON('fema_zones.geojson', function (data) {
 		geojson = L.geoJson(data, {
 			style: function(feature) {
@@ -247,91 +240,73 @@ nav {
 		layerControl.addOverlay (geojson, "Show Evacuation Zones");
 	});
 
-	
-	
 
         $(document).ready(function () {
-		var baseTerrainBackground = new L.tileLayer('http://{s}.tile.stamen.com/terrain-background/{z}/{x}/{y}.png', 
-		{
-			attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
-			subdomains: 'abcd'
-		});
-		var baseShadedRelief = new L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Shaded_Relief/MapServer/tile/{z}/{y}/{x}', 
-		{
-			attribution: 'Tiles &copy; Esri &mdash; Source: Esri'
-		});
 
-		var baseAcetate = new L.tileLayer('http://a{s}.acetate.geoiq.com/tiles/terrain/{z}/{x}/{y}.png', 
-		{
-			attribution: '&copy;2012 Esri & Stamen, Data from OSM and Natural Earth',
-			subdomains: '0123',
-		});
-		var baseMapQuestAerial = new L.tileLayer('http://oatile{s}.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.jpg', 
-		{
-			attribution: 'Tiles Courtesy of <a href="http://www.mapquest.com/">MapQuest</a> &mdash; Portions Courtesy NASA/JPL-Caltech and U.S. Depart. of Agriculture, Farm Service Agency',
-			subdomains: '1234'
-		});
-		var overCyclone = new L.TileLayer.WMS("http://nowcoast.noaa.gov/wms/com.esri.wms.Esrimap/geolinks?service=wms&version=1.1.1&request=GetCapabilities", 
-		{
-			layers: 'tc_warn_breakpoints',
-			format: 'image/png',
-			transparent: true,
-			attribution: ' '
-		});
-	   	var overCounties = new L.TileLayer.WMS("http://tigerweb.geo.census.gov/ArcGIS/services/tigerWMS/MapServer/WMSServer",
-            	{
-                        layers: 'Counties',
-                        format: 'image/png',
-                        transparent: true,
-                        attribution: 'tigerweb.geo.census.gov'
-            	});
-		var overCongress = new L.TileLayer.WMS("http://tigerweb.geo.census.gov/ArcGIS/services/tigerWMS/MapServer/WMSServer",
-            	{
-                        layers: '113th Congressional Districts',
-                        format: 'image/png',
-//	                        style: styleCongress,
-                        transparent: true,
-                        attribution: 'tigerweb.geo.census.gov'
-            	});
-		var map = L.map('map', 
-		{
-			center: [40.73, -73.99],
-			zoom: 12,
-			layer:[baseTerrainBackground]
-		});
-					
-		var markers = L.markerClusterGroup().addTo(map);
-		
-		$.getJSON('CP/CP_in_Folder.geojson', function (data) 
-		{
-			var popupOptions = 
-			{
-					minWidth: 150
-			};
-			var geojson = L.geoJson(data, 
-			{
-	                	onEachFeature: function (feature, layer) 
-	                	{
-					var content = '<a href="http://MTA.info/">hyperlink</a>';
-		                    	layer.bindPopup(content, popupOptions);                       
-				}
+//			var baseTerrain = new L.StamenTileLayer("terrainBackground");
+			var baseTerrainBackground = new L.tileLayer('http://{s}.tile.stamen.com/terrain-background/{z}/{x}/{y}.png', {
+				attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+				subdomains: 'abcd'
 			});
-			markers.addLayer(geojson);
-		});
-	layerControl.addOverlay (markers, "Show Evacuation Zones");
-		var baseLayers = {
-			"Show Terrain": baseTerrainBackground,
-			"Show Shaded Relief": baseShadedRelief,
-			"Show Aerial": baseMapQuestAerial,
-			"Shoe Acetate": baseAcetate
-		};		
+			var baseShadedRelief = new L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Shaded_Relief/MapServer/tile/{z}/{y}/{x}', {
+				attribution: 'Tiles &copy; Esri &mdash; Source: Esri'
+			});
 
-		var overlays = {
-			"Show Congress Districts": overCongress,
-			"Show Counties": overCounties,
-			"Show Cyclone Breakpoint": overCyclone
-		};
-		layerControl = L.control.layers(baseLayers, overlays).addTo(map);
+			var baseAcetate = new L.tileLayer('http://a{s}.acetate.geoiq.com/tiles/terrain/{z}/{x}/{y}.png', {
+				attribution: '&copy;2012 Esri & Stamen, Data from OSM and Natural Earth',
+				subdomains: '0123',
+			});
+			var baseMapQuestAerial = new L.tileLayer('http://oatile{s}.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.jpg', {
+				attribution: 'Tiles Courtesy of <a href="http://www.mapquest.com/">MapQuest</a> &mdash; Portions Courtesy NASA/JPL-Caltech and U.S. Depart. of Agriculture, Farm Service Agency',
+				subdomains: '1234'
+			});
+			
+	
+			var overCyclone = new L.TileLayer.WMS("http://nowcoast.noaa.gov/wms/com.esri.wms.Esrimap/geolinks?service=wms&version=1.1.1&request=GetCapabilities", 
+			{
+				layers: 'tc_warn_breakpoints',
+				format: 'image/png',
+				transparent: true,
+				attribution: ' '
+			});
+
+		   	var overCounties = new L.TileLayer.WMS("http://tigerweb.geo.census.gov/ArcGIS/services/tigerWMS/MapServer/WMSServer",
+                    	{
+	                        layers: 'Counties',
+	                        format: 'image/png',
+	                        transparent: true,
+	                        attribution: 'tigerweb.geo.census.gov'
+                    	});
+			var overCongress = new L.TileLayer.WMS("http://tigerweb.geo.census.gov/ArcGIS/services/tigerWMS/MapServer/WMSServer",
+                    	{
+	                        layers: '113th Congressional Districts',
+	                        format: 'image/png',
+//	                        style: styleCongress,
+	                        transparent: true,
+	                        attribution: 'tigerweb.geo.census.gov'
+                    	});
+
+		
+			var map = L.map('map', {
+				center: [40.73, -73.99],
+				zoom: 12,
+				layers: [baseTerrainBackground]
+			});
+
+			var baseLayers = {
+				"Show Terrain": baseTerrainBackground,
+				"Show Shaded Relief": baseShadedRelief,
+				"Show Aerial": baseMapQuestAerial,
+				"Shoe Acetate": baseAcetate
+			};		
+
+			var overlays = {
+				"Show Congress Districts": overCongress,
+				"Show Counties": overCounties,
+				"Show Cyclone Breakpoint": overCyclone
+			};
+
+			layerControl = L.control.layers(baseLayers, overlays).addTo(map);
 	});
 </script>
 
