@@ -94,6 +94,9 @@ nav {
 <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>	
 <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.4"></script>
 
+<link rel="stylesheet" href="http://leaflet.github.io/Leaflet.markercluster/dist/MarkerCluster.css" />
+<link rel="stylesheet" href="http://leaflet.github.io/Leaflet.markercluster/dist/MarkerCluster.Default.css" />
+<script src="http://leaflet.github.io/Leaflet.markercluster/dist/leaflet.markercluster-src.js"></script>
 
 <!--
       
@@ -139,6 +142,7 @@ nav {
 	};
 
 
+	
 	$.getJSON('test_routes.geojson', function (data) {
 		geojson = L.geoJson(data, {
 			style: styleRoutes,
