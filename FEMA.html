@@ -79,7 +79,7 @@ nav {
 #map {
 	border-style: solid;
 	border-color: #e8d0a9;	
-	height: 600px;
+	height: 200px;
 	width: 100%;
 	float: center;
 }
@@ -99,12 +99,11 @@ nav {
         
         map = L.map('map').setView([40.70, -73.96], 11);
 
-// 	var layer = new L.StamenTileLayer("toner");
- 	var layer = new L.tileLayer('http://{s}.tile.stamen.com/terrain-background/{z}/{x}/{y}.png', {
-				attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
-				subdomains: 'abcd'
-			});
-		 map.addLayer(layer);
+ 	var layer = new L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Shaded_Relief/MapServer/tile/{z}/{y}/{x}', 
+ 	{
+		attribution: 'Tiles &copy; Esri &mdash; Source: Esri'
+	});
+	 map.addLayer(layer);
                 
 	$.getJSON('fema_zones.geojson', function (data) {
 		geojson = L.geoJson(data, {
