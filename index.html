@@ -166,10 +166,10 @@ nav {
 		geojson = L.geoJson(data, 
 		{
 		
-                        onEachFeature: popup;       
+                        onEachFeature: popup;    
 
   
-		})
+		});
 		markers.addLayer(geojson);
 		layerControl.addOverlay (markers, "Show CP Markers");
 	});
