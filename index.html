@@ -99,21 +99,12 @@ nav {
 <script src="http://leaflet.github.io/Leaflet.markercluster/dist/leaflet.markercluster-src.js"></script>
 
 <!--
-      
     var layersControl = new L.Control.Layers(baseMaps, overlayMaps,
             {
                 collapsed: !L.Browser.touch
             });
             map.addControl(layersControl);
 
-	var styleCongress = {
-	    "fillColor": "#ff7800",
-	    "color": "#663333",
-	    "weight": 1,
-	    "opacity": 1,
-	    "fillOpacity": 0.8
-	};
-	
 -->
 
 <script>
@@ -138,6 +129,14 @@ nav {
 	    "weight": 1.8,
 	    "opacity": 0.9
 	};
+	var styleCP = {
+	    radius: 2,
+	    fillColor: "#6D929B",
+	    color: "#CC3300",
+	    weight: .7,
+	    opacity: 1,
+	    fillOpacity: 0.8		
+	}
 
 	$.getJSON('test_routes.geojson', function (data) {
 		geojson = L.geoJson(data, 
@@ -154,7 +153,8 @@ nav {
 	$.getJSON('cp_dashboard.geojson', function (data) {
 		var popupOptions = 
 		{
-			minWidth: 150
+			minWidth: 150,
+			fillColor: blue
 		};
 		geojson = L.geoJson(data, 
 		{
