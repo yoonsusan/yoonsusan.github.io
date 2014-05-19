@@ -95,46 +95,22 @@ nav {
 	var map;
 	var geojson;
 
- $(document).ready(function () {
-        
-        map = L.map('map').setView([40.70, -73.96], 11);
-
- 	var layer = new L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Shaded_Relief/MapServer/tile/{z}/{y}/{x}', 
+ 	$(document).ready(function () 
  	{
-		attribution: 'Tiles &copy; Esri &mdash; Source: Esri'
+	        map = L.map('map').setView([40.70, -73.96], 11);
+	 	var layer = new L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Shaded_Relief/MapServer/tile/{z}/{y}/{x}', 
+	 	{
+			attribution: 'Tiles &copy; Esri &mdash; Source: Esri'
+		});
+		map.addLayer(layer);
+	                
+		$.getJSON('limwa.geojson', function (data) {
+			geojson = L.geoJson(data, 
+			{
+	        		style: styleLimits
+			}).addTo(map);
+		});
 	});
-	 map.addLayer(layer);
-                
-	$.getJSON('fema_zones.geojson', function (data) {
-		geojson = L.geoJson(data, {
-			style: function(feature) {
-				switch (feature.properties.zone) {
-						case 'V': return {
-							color: '#732C7B',
-							weight: .1,
-							fillOpacity: 0.7,
-							fillColor: '#732C7B'
-						};
-						break;
-						case 'A': return {
-							color: '#9C8AA5',
-							weight: .1,
-							fillOpacity: 0.7,
-							fillColor: '#9C8AA5'
-						};
-						break;
-						case 'X': return {
-							color: '#8CA690',
-							weight: .1,
-							fillOpacity: 0.7,
-							fillColor: '#8CA690'
-						};
-						break;
-				}
-			}	
-		}).addTo(map);
-	});
-});
 
 </script>
 
@@ -147,7 +123,6 @@ nav {
 
 		<div class="headerRight">
 			<h3>
-
 			<nav>
 			<div>
 				<a class="text-white" href=index.html>Home</a>
@@ -156,9 +131,9 @@ nav {
 				&nbsp; &nbsp; 
 				<a class="text-white" href=FEMA.html>FEMA </a>
 				&nbsp; &nbsp; 			
-				<a class="text-white" href=OEM.html>OEM </a>
+				<a class="text-white" href=OEM/index.html>OEM </a>
 				&nbsp; &nbsp; 
-				<a class="text-white" href=SVOI.html>SVOI</a>
+				<a class="text-white" href=SVOI/index.html>SVOI</a>
 			</div>
 			</nav>
 			</h3>
