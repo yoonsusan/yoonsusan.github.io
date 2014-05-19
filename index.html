@@ -151,13 +151,6 @@ nav {
 	});
 	var markers = L.markerClusterGroup()
 	$.getJSON('cp_dashboard.geojson', function (data) {
-      		function popup(feature, layer) 
-		{
-			if (feature.properties && feature.properties.name) 
-			{
-				layer.bindPopup(feature.properties.name)
-			}
-		}
 		geojson = L.geoJson(data, 
 		{
                         pointToLayer: function (feature, latlng) {
@@ -165,6 +158,17 @@ nav {
     			},
 
                         onEachFeature: popup    
+                        
+                        
+                        onEachFeature: function (feature, layer) {
+							/* var agency = */
+                   
+				var content = '<p>agency: ' + feature.properties.agency + '</p>';
+                            	content = content + '<a href="http://web.mta.info/capitaldashboard/CPDHome.html">Capital Projects</a>';
+                            	layer.bindPopup(content, popupOptions);                       
+						}
+                        
+                        
 		});
 		markers.addLayer(geojson);
 		layerControl.addOverlay (markers, "Show Capital Projects");
