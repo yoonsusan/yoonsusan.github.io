@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html, body {
+	height: 100%;
+	width: 100%
+}	
+body {	
+	font-family: "Hoefler Text", "Cambria", "Didot", "Baskerville old face", "Garamond", "Times New Roman", serif;Didot, Heveltica, serif;
+	background: url(http://sustainability-mapping.com/10-Subtle-Textures09.jpg) repeat;
+
+}
+header {
+	position: absolute;
+	margin-left:auto;
+	margin-right:auto;
+	top: 0px;
+	left: 0px;
+	width: 90%;
+	height: 100px;
+	background-color: #C1DAD6;
+	margin: .7% 0px 0px 5%;
+	box-shadow: 5px 5px 5px 5px #999;
+	z-index: 50;
+
+}
+.headerLeft, .headerRight {
+	float: left;
+	width: 40%;
+	color: white;
+	margin: 0px 25px 0px 25px;
+}	
+.headerLeft {
+	float: left;
+
+}
+.headerRight {
+	float: right;
+	margin: 0px 25px 0px 25px;
+}
+.columnLeft, .columnRight {		
+	color: #B7AFA3;
+	color: #B7AFA3;
+}
+.columnLeft {
+	width: 20%;
+	height: 900px;
+	float: left;
+	background-color: #eeeceb;
+	margin: 125px 1% 0px 5%;
+	font-size: 80%;
+}
+
+.columnRight {
+	width: 68%;
+	height: 900px;
+	float: left;
+	margin: 125px 0px 0px 0%;
+	background-color: #eeeceb;
+}
+h1, h2, h3 {
+	color: white;
+}	
+
+a:hover {
+	color: grey;
+}
+nav {
+	text-align: right;
+	width: 100%;
+	float: right;
+	margin: 22px 15px 90px 0px;
+	font-size: 75%;
+}
+.text-white {
+	color: white;	
+}
+#map {
+	border-style: solid;
+	border-color: #e8d0a9;	
+	height: 200px;
+	width: 100%;
+	float: center;
+}
+
+</style>
+
+<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css">
+<script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>	
+<script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.4"></script>
+
+<script>
+	var map;
+	var geojson;
+
+ $(document).ready(function () {
+        
+        map = L.map('map').setView([40.70, -73.96], 11);
+
+ 	var layer = new L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Shaded_Relief/MapServer/tile/{z}/{y}/{x}', 
+ 	{
+		attribution: 'Tiles &copy; Esri &mdash; Source: Esri'
+	});
+	 map.addLayer(layer);
+                
+	$.getJSON('fema_zones.geojson', function (data) {
+		geojson = L.geoJson(data, {
+			style: function(feature) {
+				switch (feature.properties.zone) {
+						case 'V': return {
+							color: '#732C7B',
+							weight: .1,
+							fillOpacity: 0.7,
+							fillColor: '#732C7B'
+						};
+						break;
+						case 'A': return {
+							color: '#9C8AA5',
+							weight: .1,
+							fillOpacity: 0.7,
+							fillColor: '#9C8AA5'
+						};
+						break;
+						case 'X': return {
+							color: '#8CA690',
+							weight: .1,
+							fillOpacity: 0.7,
+							fillColor: '#8CA690'
+						};
+						break;
+				}
+			}	
+		}).addTo(map);
+	});
+});
+
+</script>
+
+
+<body>
+	<header>
+		<div class="headerLeft">
+			<h2> Vulnerability Mapping <br/> Of New York City</h2>
+		</div>
+
+		<div class="headerRight">
+			<h3>
+
+			<nav>
+			<div>
+				<a class="text-white" href=index.html>Home</a>
+				&nbsp; &nbsp;
+				<a class="text-white" href=LiMWA.html>   LiMWA</a>
+				&nbsp; &nbsp; 
+				<a class="text-white" href=FEMA.html>FEMA </a>
+				&nbsp; &nbsp; 			
+				<a class="text-white" href=OEM.html>OEM </a>
+				&nbsp; &nbsp; 
+				<a class="text-white" href=SVOI.html>SVOI</a>
+			</div>
+			</nav>
+			</h3>
+		</div>
+	</header>
+
+		<div class="columnLeft">
+			<p>
+			The New York Metropolitan region has been designated by the Organisation for Economic Co-operation and Development (OECD) as one of the top ten global cities in terms of population and in terms of assets exposed to coastal flooding due to storm surge. 
+
+			<br />
+
+			Additionally, the New York City public transit system is one of the country’s oldest infrastructure systems.  The New York City Transit subway system is the busiest subway system in the country, and the Long Island Railroad and Metro-North Railroad are the first and second largest commuter rail networks in the country.
+			<br />
+			The New York Metropolitan area is faced with specific climate change hazards: increase in precipitation, sea-level rise, and increasingly frequent coastal storms.  
+			<br />
+			<em>Sea-level Rise:</em><br />
+			Forecasts predict sea-level rise to be between 12 to 23 inches by 2080’s.  With a rapid ice-melt scenario (based off current rates of ice melt in Greenland and Antarctica), sea-level rise could be between 41 to 55 inches.  This 12 to 55 inch stillwater elevation rise would exacerbate storm surge and coastal inundation.
+			<br />
+			<em>Extreme Precipitation:</em><br />
+			Precipitation patterns show an increase in rainfall and non-coastal rainstorms due to global warming. Climate modeling predicts an annual precipitation increase between 5 and 15 percent by the end of the century.  Also, the number of days with over 2 inches of rain will increase a factor of 1.4 to 1.8.  
+			<br />
+			<em>Coastal Storms:</em><br />
+			By the 2050’s the IPCC has predicted that the frequency and intensity of intense hurricanes (category 3 or higher) is “more likely than not” to increase.  Without adaptation to combat sea-level rise and coastal storms, a 100 year flood event (“a flood that has a 1 percent chance of occurring in any given year”) will become 5 times more frequent by the 2050’s.  
+			<br />
+			</p>
+		</div>
+
+		<div class="columnRight">
+			<div id="map">
+
+			</div>
+
+			<div>
+				<br />
+				<img width=75% src=http://www.region2coastal.com/_/rsrc/1329833529342/coastal-mapping-basics/limwa_ds_v2.png?height=255&width=605 />
+				<br />
+				<a href=http://www.region2coastal.com/coastal-mapping-basics>View additional information on Coastal Mapping Basics at www.region2coastal.com/coastal-mapping-basics </a>
+
+
+			<p>
+				<a href="LiMWA.html">Additional information about Limits of Moderate Wave Action can be found here</a>
+			</p>
+			</div>
+		</div>		
+	</div>
+</body>
+
+
+</html>
