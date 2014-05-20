@@ -1,147 +1,152 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<style>
-	html, body {
-		height: 100%;
-		width: 100%
-	}	
-	body {	
-		font-family: "Hoefler Text", "Cambria", "Didot", "Baskerville old face", "Garamond", "Times New Roman", serif;Didot, Heveltica, serif;
-		background: url(http://sustainability-mapping.com/10-Subtle-Textures09.jpg) repeat;
-	}
-	header {
-		position: absolute;
-		top: 0px;
-		left: 0px;
-		width: 100%;
-		height: 100px;
-		background-color: #c1dad6;
-		font-stretch:9;
-		box-shadow: 10px 10px 5px 5px #999;
-		z-index: 50;
+<style>
+html, body {
+	height: 100%;
+	width: 100%
+}	
+body {	
+	font-family: "Hoefler Text", "Cambria", "Didot", "Baskerville old face", "Garamond", "Times New Roman", serif;Didot, Heveltica, serif;
+	background: url(http://sustainability-mapping.com/10-Subtle-Textures09.jpg) repeat;
 
-	}
-	.headerLeft, .headerRight {
-		float: left;
-		width: 40%;
-		color: white;
-		margin: 0px 25px 0px 25px;
-	}	
-	.headerLeft {
-		float: left;
-	}
-	.headerRight {
-		float: right;
-	}
-	.columnLeft, .columnRight {		
-		margin: 120px 0px 0px 10px;
-	}
-	.columnLeft {
-		width: 20%;
-		float: left;
-		color: white;
-				background-color: #eeeceb;
-	}
-	.columnRight {
-		width: 75%;
-		float: left;
-		color: white;
-				background-color: #eeeceb;
-	}
-	h1, h2, h3 {
-		color: white;
-	}	
-	a {
-		color: white;
-	}
-	a:hover {
-		color: grey;
-	}
-	.headerCenter {
-		height: 120px;
-		width 20%;
-	}
-	nav {
-		text-align: right;
-		width: 100%;
-		float: right;
-		margin: 24px 0px 19px 0px;
-		font-size: 75%;
-	}
-	#map {
-		border-style: solid;
-		border-color: #e8d0a9;	
-		height: 450px;
-		width: 80%;
-	}
-	.leaflet-popup-content-wrapper {
-                background-color: lightblue;
-                border-radius: 0;
-                box-shadow: none;
-                font-weight: bold;
-                height: 250px;
-    }
-	.leaflet-popup-tip {
-		background-color: lightblue;
-		box-shadow: none;
-	}
-	</style>
- 	<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
-	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css">
-	<script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>	
-	<script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.4"></script>
+}
+header {
+	position: absolute;
+	margin-left:auto;
+	margin-right:auto;
+	top: 0px;
+	left: 0px;
+	width: 90%;
+	height: 100px;
+	background-color: #C1DAD6;
+	margin: .7% 0px 0px 5%;
+	box-shadow: 5px 5px 5px 5px #999;
+	z-index: 50;
 
-	<link rel="stylesheet" href="http://leaflet.github.io/Leaflet.markercluster/dist/MarkerCluster.css" />
-    <link rel="stylesheet" href="http://leaflet.github.io/Leaflet.markercluster/dist/MarkerCluster.Default.css" />
-    <script src="http://leaflet.github.io/Leaflet.markercluster/dist/leaflet.markercluster-src.js"></script>
-<!--
--->
-	
-</head>
+}
+.headerLeft, .headerRight {
+	float: left;
+	width: 40%;
+	color: white;
+	margin: 0px 25px 0px 25px;
+}	
+.headerLeft {
+	float: left;
+
+}
+.headerRight {
+	float: right;
+	margin: 0px 25px 0px 25px;
+}
+.columnLeft, .columnRight {		
+	color: #B7AFA3;
+	color: #B7AFA3;
+}
+.columnLeft {
+	width: 20%;
+	height: 900px;
+	float: left;
+	background-color: #eeeceb;
+	margin: 125px 1% 0px 5%;
+	font-size: 90%;
+}
+
+.columnRight {
+	width: 68%;
+	height: 900px;
+	float: left;
+	margin: 125px 0px 0px 0%;
+	background-color: #eeeceb;
+}
+h1, h2, h3 {
+	color: white;
+}	
+
+a:hover {
+	color: grey;
+}
+nav {
+	text-align: right;
+	width: 100%;
+	float: right;
+	margin: 22px 15px 90px 0px;
+	font-size: 75%;
+}
+.text-white {
+	color: white;	
+}
+#map {
+	border-style: solid;
+	border-color: #e8d0a9;	
+	height: 200px;
+	width: 100%;
+	float: center;
+}
+
+</style>
+
+<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css">
+<script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>	
+<script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.4"></script>
+
 
 <body>
 	<header>
 		<div class="headerLeft">
-			<h2> Vulnerability Mapping NOAA <br />Social Vulnerability Index</h2>
+			<h2> Vulnerability Mapping <br/> Of New York City</h2>
 		</div>
-		
+
 		<div class="headerRight">
-		
+			<h3>
+
+			<nav>
+			<div>
+				<a class="text-white" href=index.html>Home</a>
+				&nbsp; &nbsp;
+				<a class="text-white" href=FEMA.html>FEMA </a>
+				&nbsp; &nbsp; 			
+				<a class="text-white" href=LiMWA.html>LiMWA</a>
+				&nbsp; &nbsp; 
+				<a class="text-white" href=method.html>Methods</a>
+				&nbsp; &nbsp; 
+				<a class="text-white" href=SVOI.html>SVOI</a>
+			</div>
+			</nav>
+			</h3>
 		</div>
 	</header>
-	
-		<div class="columnLeft">
-			<p>
-			Climate risk is as the "product of the likelihood of an event occurring and the magnitude of consequences should that event occur... [where] likelihood is defined as the probability of occurrence of a climate hazard." (NPCC, 2009)
-			<br />
-			<br />
-			The New York Metropolitan area is faced with specific climate change hazards: temperature increase, changes in precipitation patterns, sea-level rise and the consequent heat waves, flooding, and coastal inundation.  
-			<br />
-			Sea-level Rise:<br />
-			Forecasts predict sea-level rise to be between 12 to 23 inches by 2080’s.  With a rapid ice-melt scenario (based off current rates of ice melt in Greenland and Antarctica), sea-level rise could be between 41 to 55 inches.  This 12 to 55 inch stillwater elevation rise would exacerbate storm surge and coastal inundation.
-			<br />
-			Temperature:<br />
-			Climate forecasts predict a steady increase in frequency of days above 90 degrees.  Estimates are between 38 to 70 days above 90 degrees per year by the end of the century.  Prior to 1990, there were approximately 17 days above 90 degrees per year.   This increase will cause significant damage to assets and strain on infrastructure.  
-			<br />
-			Extreme Precipitation:<br />
-			Precipitation patterns show an increase in rainfall and non-coastal rainstorms due to global warming. Climate modeling predicts an annual precipitation increase between 5 and 15 percent by the end of the century.  Also, the number of days with over 2 inches of rain will increase a factor of 1.4 to 1.8.  
-			<br />
-			Coastal Storms:<br />
-			By the 2050’s the IPCC has predicted that the frequency and intensity of intense hurricanes (category 3 or higher) is “more likely than not” to increase.  Without adaptation to combat sea-level rise and coastal storms, a 100 year flood event (“a flood that has a 1 percent chance of occurring in any given year”) will become 5 times more frequent by the 2050’s.  
-			<br />
-			(City of New York, 2013) (Intergovernmental Panel on Climate Change, 2012) (Metropolitan Transportation Authority, 2007) (Metropolitan Transportation Authority, 2008) (New York State, 2011) 
-			</p>
-		</div>
-		
-		<div class="columnRight">
-			<div id="map">
-				<iframe width='100%' height='450' frameborder='0' src='http://yoonsusan.cartodb.com/viz/2afd6ffa-d486-11e3-a2ef-0edbca4b5057/embed_map?title=true&description=true&search=false&shareable=true&cartodb_logo=true&layer_selector=false&legends=true&scrollwheel=true&fullscreen=true&sublayer_options=1&sql=&sw_lat=40.474113752478836&sw_lon=-74.43099975585938&ne_lat=40.89275342420696&ne_lon=-73.52188110351562' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
-			</div>
-		</div>		
+
+	<div class="columnLeft">
+		<p>
+		Climate risk is as the "product of the likelihood of an event occurring and the magnitude of consequences should that event occur... [where] likelihood is defined as the probability of occurrence of a climate hazard." (NPCC, 2009)
+		<br />
+		<br />
+		The New York Metropolitan area is faced with specific climate change hazards: temperature increase, changes in precipitation patterns, sea-level rise and the consequent heat waves, flooding, and coastal inundation.  
+		<br />
+		Sea-level Rise:<br />
+		Forecasts predict sea-level rise to be between 12 to 23 inches by 2080’s.  With a rapid ice-melt scenario (based off current rates of ice melt in Greenland and Antarctica), sea-level rise could be between 41 to 55 inches.  This 12 to 55 inch stillwater elevation rise would exacerbate storm surge and coastal inundation.
+		<br />
+		Temperature:<br />
+		Climate forecasts predict a steady increase in frequency of days above 90 degrees.  Estimates are between 38 to 70 days above 90 degrees per year by the end of the century.  Prior to 1990, there were approximately 17 days above 90 degrees per year.   This increase will cause significant damage to assets and strain on infrastructure.  
+		<br />
+		Extreme Precipitation:<br />
+		Precipitation patterns show an increase in rainfall and non-coastal rainstorms due to global warming. Climate modeling predicts an annual precipitation increase between 5 and 15 percent by the end of the century.  Also, the number of days with over 2 inches of rain will increase a factor of 1.4 to 1.8.  
+		<br />
+		Coastal Storms:<br />
+		By the 2050’s the IPCC has predicted that the frequency and intensity of intense hurricanes (category 3 or higher) is “more likely than not” to increase.  Without adaptation to combat sea-level rise and coastal storms, a 100 year flood event (“a flood that has a 1 percent chance of occurring in any given year”) will become 5 times more frequent by the 2050’s.  
+		<br />
+		(City of New York, 2013) (Intergovernmental Panel on Climate Change, 2012) (Metropolitan Transportation Authority, 2007) (Metropolitan Transportation Authority, 2008) (New York State, 2011) 
+		</p>
 	</div>
+	
+	<div class="columnRight">
+		<div id="map">
+			<iframe width='100%' height='450' frameborder='0' src='http://yoonsusan.cartodb.com/viz/2afd6ffa-d486-11e3-a2ef-0edbca4b5057/embed_map?title=true&description=true&search=false&shareable=true&cartodb_logo=true&layer_selector=false&legends=true&scrollwheel=true&fullscreen=true&sublayer_options=1&sql=&sw_lat=40.474113752478836&sw_lon=-74.43099975585938&ne_lat=40.89275342420696&ne_lon=-73.52188110351562' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+		</div>
+	</div>	
 </body>
 
 
 </html>
-
