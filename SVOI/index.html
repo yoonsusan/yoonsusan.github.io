@@ -96,34 +96,6 @@
     <link rel="stylesheet" href="http://leaflet.github.io/Leaflet.markercluster/dist/MarkerCluster.Default.css" />
     <script src="http://leaflet.github.io/Leaflet.markercluster/dist/leaflet.markercluster-src.js"></script>
 <!--
-	<script>
-            var map;
-
-            $(document).ready(function () {
-                map = L.map('map').setView([40.70, -73.96], 11);
-                var layer = new L.StamenTileLayer("terrain");
-					map.addLayer(layer);
-				var markers = L.markerClusterGroup().addTo(map);
-			
-				$.getJSON('http://yoonsusan.cartodb.com/api/v2/sql?q=SELECT * FROM SVOI_2000&format=GeoJSON', function (data) {
-					console.log("got geojson");
-					var popupOptions = {
-							minWidth: 150
-					};
-					var geojson = L.geoJson(data, {
-                        onEachFeature: function (feature, layer) {
-							/* var agency = */
-                   
-							var content = '<p>agency: ' + feature.properties.agency + '</p>';
-                            content = content + '<a href="http://MTA.info/">hyperlink</a>';
-                            layer.bindPopup(content, popupOptions);                       
-						}
-                    });
-					markers.addLayer(geojson);
-                });
-            });
-        
-    </script>
 -->
 	
 </head>
@@ -131,7 +103,7 @@
 <body>
 	<header>
 		<div class="headerLeft">
-			<h2> Vulnerability Mapping NOAA Social Vulnerability Index</h2>
+			<h2> Vulnerability Mapping NOAA <br />Social Vulnerability Index</h2>
 		</div>
 		
 		<div class="headerRight">
