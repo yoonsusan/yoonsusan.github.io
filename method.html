@@ -103,41 +103,33 @@ nav {
 				The final map product included 4 baselayers and 7 overlays as seen in the screen shot below.
 				<br/>	<br/>
 				Geodata Sources and Processes:
-				<br />
+				<br /><br/>
 				Baselayers: Terrain, Shaded Relief, Aerial, Acetate
 				<br/>
 				Base layers showing some form of terrain were selected to reference the topographic nature of vulnerability.  The first two layers make show no surface roads whatsoever.  The first baselayer, “terrain,” was accessed through Stamen Design.  The “shaded relief” layer was accessed through Esri / ArcGIS rest services.  The “acetate” layer was accessed through Esri & Stamen.  And the aerial baselayer was accessed via MapQuest with portions courtesy of NASA/JPL-Caltech and U.S. Dept. of Agriculture, Farm Service Agency.
-				<br/>	
+				<br/><br/>	
 				MTA Capital Projects
 				<br/>
+				The current capital projects of the MTA were extracted from the mta.info website via developer tools as an xml file.  The list of 623 capital project locations were converted to a csv file and then uploaded as a CartoDb table.  This table was then exported as a geojson and added to the Leaflet library.
 				http://web.mta.info/capitaldashboard/CPDHome.html
 				<br/>
-				The current capital projects of the MTA were extracted from the mta.info website via developer tools as an xml file.  The list of 623 capital project locations were converted to a csv file and then uploaded as a CartoDb table.  This table was then exported as a geojson and added to the Leaflet library.
-				<br/>	<br/>
 				Administrative Boundaries: Congressional Districts and Counties
 				<br/>
 				Administrative boundaries were added to the overlays.  These were included for practicality.  Both the county lines and the congressional districts layers were accessed via the U.S. Census TIGERweb Web Map Service via http://tigerweb.geo.census.gov/ArcGIS/services/tigerWMS/MapServer/WMSServer
-				<br/>
 				http://tigerweb.geo.census.gov/ArcGIS/services/tigerWMS/MapServer/WMSServer
-				<br/>
 				The congressional districts are representative of the 113th Congress.
 				<br/>	<br/>
 				New York City Transit Stations and Routes
 				<br/>
-				New York City Transit Authority (“MTA New York City Transit”) and its subsidiary, the Manhattan and Bronx Surface Transit Operating Authority (“MaBSTOA”) provide subway and public bus service within the five boroughs of New York City. 
-				<br/>
+				New York City Transit Authority (“MTA New York City Transit”) and its subsidiary, the Manhattan and Bronx Surface Transit Operating Authority (“MaBSTOA”) provide subway and public bus service within the five boroughs of New York City. 		
 				MTA New York City Transit operates a subway system with 26 lines, 468 stations, and 6,485 cars; a bus system with 4,576 buses on 243 routes; Ridership is approximately 7 million daily and over 2.3 billion annually.
-				<br/>
 				The original files were downloaded from http://spatialityblog.com/2010/07/08/mta-gis-data-update/.  The routes polyline shapefile and station point shapefiles were converted to geojson files in CartoDb, saved to the github repository, and added as an overlay. 
 				<br/>	<br/>
 				FEMA Flood Zones
 				<br/>
 				Special Flood Hazard Areas (or FEMA Flood Zones) represent the area subject to inundation by 1-percent-annual chance flood .  These flood zones are based on a modeling system that takes into account still water elevation, wave runup, erosion, and coastal topography. ‘V’ Zones are areas at highest risk.  These are coastal areas with a 1% chance of flooding in any given year, with a computed potential wave height of 3 feet or more.  ‘A’ Zones are also coastal areas with a 1% chance of flooding.  These are generally further landward and have a computed potential wave height of less than 3 feet.  500-year flood zones are areas with a 0.2% chance of flooding in any given year.  
-				<br/>
 				The GIS files used in this project were all downloaded from the Preliminary FEMA Map Products: https://hazards.fema.gov/femaportal/prelimdownload/searchResult.action.  Data were accessed on March 20, 2014.
-				<br/>
-				New York City (FIRM Database Item ID: 360497), issued 12/05/2013:
-				<br/>	<br/>
+	 			New York City (FIRM Database Item ID: 360497), issued 12/05/2013:
 				The polygon shapefiles were converted to a geojson in CartoDb, saved to the github repository, and added as an overlay. 
 				<br/>	<br/>
 				FEMA Limits of Moderate Wave Action
