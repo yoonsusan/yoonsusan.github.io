@@ -332,7 +332,6 @@ nav {
 
 		<div class="headerRight">
 			<h3>
-				
 			<nav>
 			<div>
 				<a class="text-white" href=index.html>Home</a>
@@ -348,88 +347,44 @@ nav {
 			</nav>
 			</h3>
 		</div>
-	</header>
-
-		<div class="columnLeft">
+			<div class="columnLeft">
 			<p>
+			Climate risk is defined as the "product of the likelihood of an event occurring and the magnitude of consequences should that event occur... [where] likelihood is defined as the probability of occurrence of a climate hazard." (New York City Panel on Climate Change, 2009)
+			<br />
+			<br />
 			The New York Metropolitan region has been designated by the Organisation for Economic Co-operation and Development (OECD) as one of the top ten global cities in terms of population and in terms of assets exposed to coastal flooding due to storm surge. 
 
 			<br />
 			
-			Additionally, the New York City public transit system is one of the country’s oldest infrastructure systems.  The New York City Transit subway system is the busiest subway system in the country, with and annual ridership of 1.7 billion.
+			Additionally, the New York City public transit system is one of the country’s oldest infrastructure systems.  The New York City Transit subway system is the busiest subway system in the country, and the Long Island Railroad and Metro-North Railroad are the first and second largest commuter rail networks in the country.
 			<br />
-			The New York Metropolitan area is faced with specific climate change hazards: increase in precipitation, sea-level rise, and increasingly frequent coastal storms.  
+			The New York Metropolitan area is faced with specific climate change hazards: temperature increase, changes in precipitation patterns, sea-level rise, and increasingly frequent coastal storms.  
 			<br />
-			<em>Sea-level Rise:</em><br />
-			In its 2010 Report to the Legislature, the New York State Task Force on Sea Level Rise included each of the 12 New York counties  serviced by the MTA in its list of counties affected by sea-level rise.  (New York State, 2010)  Forecasts predict sea-level rise to be between 12 to 23 inches by the 2080’s.  With a rapid ice-melt scenario (based on current rates of ice melt in Greenland and Antarctica), sea-level rise could be between 41 to 55 inches by the 2080’s.  (New York State, 2011)  This 12 to 55 inch still water elevation rise would exacerbate storm surge and coastal inundation. Much of the transportation infrastructure (including tracks, rail yards, and depots) in New York State is built along low-lying coastal areas.  In New York City and along the Hudson River in particular, coastal areas often lack naturally occurring systems to act as a barrier against coastal inundation and sea level rise. 
+			Sea-level Rise:<br />
+			Forecasts predict sea-level rise to be between 12 to 23 inches by 2080’s.  With a rapid ice-melt scenario (based off current rates of ice melt in Greenland and Antarctica), sea-level rise could be between 41 to 55 inches.  This 12 to 55 inch stillwater elevation rise would exacerbate storm surge and coastal inundation.
 			<br />
-			<em>Coastal Storms:</em><br />
-			By the 2050’s the IPCC has predicted that the frequency and intensity of intense hurricanes (category 3 or higher) is “more likely than not” to increase.  Without adaptation to combat sea-level rise and coastal storms, a 100 year flood event (“a flood that has a 1 percent chance of occurring in any given year”) will become 5 times more frequent by the 2050’s according to New York City's PlaNYC report.
+			Temperature:<br />
+			Climate forecasts predict a steady increase in frequency of days above 90 degrees.  Estimates are between 38 to 70 days above 90 degrees per year by the end of the century.  Prior to 1990, there were approximately 17 days above 90 degrees per year.   This increase will cause significant damage to assets and strain on infrastructure.  
 			<br />
+			Extreme Precipitation:<br />
+			Precipitation patterns show an increase in rainfall and non-coastal rainstorms due to global warming. Climate modeling predicts an annual precipitation increase between 5 and 15 percent by the end of the century.  Also, the number of days with over 2 inches of rain will increase a factor of 1.4 to 1.8.  
+			<br />
+			Coastal Storms:<br />
+			By the 2050’s the IPCC has predicted that the frequency and intensity of intense hurricanes (category 3 or higher) is “more likely than not” to increase.  Without adaptation to combat sea-level rise and coastal storms, a 100 year flood event (“a flood that has a 1 percent chance of occurring in any given year”) will become 5 times more frequent by the 2050’s.  
+			<br />
+			(City of New York, 2013) (Intergovernmental Panel on Climate Change, 2012) (Metropolitan Transportation Authority, 2007) (Metropolitan Transportation Authority, 2008) (New York State, 2011) 
 			</p>
 		</div>
 
 		<div class="columnRight">
-			<p>
-				The overarching goal of this project was to begin to examine the potential use of mapping tools in assessing the vulnerability of the MTA’s assets to specific climate risk factors.  
-				<br />
-				The first stage of the mapping process was to plot the stations and routes of the MTA subway network.  These maps would then be overlaid onto maps representing future flood risk, such as maps of FEMA flood hazard areas.  The map overlays would be presented as an online interactive map using a JavaScript library (Leaflet).  Users would be able to display layers of their choosing by clicking on and off map layers in the layer control. 
-				<br/>
-				The final map product included 4 baselayers and 7 overlays as seen in the screen shot below.
-				<br/>
-				Geodata Sources and Processes:
-				<br />
-				Baselayers: Terrain, Shaded Relief, Aerial, Acetate
-				<br/>
-				Base layers showing some form of terrain were selected to reference the topographic nature of vulnerability.  The first two layers make show no surface roads whatsoever.  The first baselayer, “terrain,” was accessed through Stamen Design.  The “shaded relief” layer was accessed through Esri / ArcGIS rest services.  The “acetate” layer was accessed through Esri & Stamen.  And the aerial baselayer was accessed via MapQuest with portions courtesy of NASA/JPL-Caltech and U.S. Dept. of Agriculture, Farm Service Agency.
-				<br/>	
-				MTA Capital Projects
-				<br/>
-				http://web.mta.info/capitaldashboard/CPDHome.html
-				<br/>
-				The current capital projects of the MTA were extracted from the mta.info website via developer tools as an xml file.  The list of 623 capital project locations were converted to a csv file and then uploaded as a CartoDb table.  This table was then exported as a geojson and added to the Leaflet library.
-				<br/>
-				Administrative Boundaries: Congressional Districts and Counties
-				<br/>
-				Administrative boundaries were added to the overlays.  These were included for practicality.  Both the county lines and the congressional districts layers were accessed via the U.S. Census TIGERweb Web Map Service via http://tigerweb.geo.census.gov/ArcGIS/services/tigerWMS/MapServer/WMSServer
-				<br/>
-				http://tigerweb.geo.census.gov/ArcGIS/services/tigerWMS/MapServer/WMSServer
-				<br/>
-				The congressional districts are representative of the 113th Congress.
-				<br/>
-				New York City Transit Stations and Routes
-				<br/>
-				New York City Transit Authority (“MTA New York City Transit”) and its subsidiary, the Manhattan and Bronx Surface Transit Operating Authority (“MaBSTOA”) provide subway and public bus service within the five boroughs of New York City. 
-				<br/>
-				MTA New York City Transit operates a subway system with 26 lines, 468 stations, and 6,485 cars; a bus system with 4,576 buses on 243 routes; Ridership is approximately 7 million daily and over 2.3 billion annually.
-				<br/>
-				The original files were downloaded from http://spatialityblog.com/2010/07/08/mta-gis-data-update/.  The routes polyline shapefile and station point shapefiles were converted to geojson files in CartoDb, saved to the github repository, and added as an overlay. 
-				<br/>
-				FEMA Flood Zones
-				<br/>
-				Special Flood Hazard Areas (or FEMA Flood Zones) represent the area subject to inundation by 1-percent-annual chance flood .  These flood zones are based on a modeling system that takes into account still water elevation, wave runup, erosion, and coastal topography. ‘V’ Zones are areas at highest risk.  These are coastal areas with a 1% chance of flooding in any given year, with a computed potential wave height of 3 feet or more.  ‘A’ Zones are also coastal areas with a 1% chance of flooding.  These are generally further landward and have a computed potential wave height of less than 3 feet.  500-year flood zones are areas with a 0.2% chance of flooding in any given year.  
-				<br/>
-				The GIS files used in this project were all downloaded from the Preliminary FEMA Map Products: https://hazards.fema.gov/femaportal/prelimdownload/searchResult.action.  Data were accessed on March 20, 2014.
-				<br/>
-				New York City (FIRM Database Item ID: 360497), issued 12/05/2013:
-				<br/>	<br/>
-				The polygon shapefiles were converted to a geojson in CartoDb, saved to the github repository, and added as an overlay. 
-				<br/>
-				FEMA Limits of Moderate Wave Action
-				<br/>
-				‘A’ zones are further separated by the Limit of Moderate Wave Action (LiMWA) boundary line.  Areas outside the LiMWA have potential wave heights between 1.5 and 3.0 feet.  A diagram showing the delineation of the Limits of Moderate Wave Action.
-				<br/>
-			</p>
-			<p>
-				<a href="LiMWA.html">Additional information about Limits of Moderate Wave Action can be found here</a>
-					<br />
-				<a href="FEMA.html">Additional information about FEMA Flood Zones can be found here</a>
-					<br />
-				<a href="method.html">Background Informatiion and Methodology can be found here</a>
-					<br /
-			</p>
-		</div>		
-	</div>
+			<div id="map">
+			</div>
+		
+		</div>	
+	</header>
+
+		
+
 </body>
 
 
