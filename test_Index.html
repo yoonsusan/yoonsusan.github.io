@@ -91,20 +91,85 @@ nav {
 <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>	
 <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.4"></script>
 
+<link rel="stylesheet" href="http://leaflet.github.io/Leaflet.markercluster/dist/MarkerCluster.css" />
+<link rel="stylesheet" href="http://leaflet.github.io/Leaflet.markercluster/dist/MarkerCluster.Default.css" />
+<script src="http://leaflet.github.io/Leaflet.markercluster/dist/leaflet.markercluster-src.js"></script>
+
 <script>
 	var map;
 	var geojson;
+	var layerControl;
+	var styleRoutes = {
+	    "color": "#ff7800",
+	    "weight": 1.3,
+	    "opacity": 0.65
+	};
+	var styleStations = {
+	    radius: 2,
+	    fillColor: "#6D929B",
+	    color: "#CC3300",
+	    weight: .7,
+	    opacity: 1,
+	    fillOpacity: 0.8
+	};
+	var styleLimits = {
+	    "color": "purple",
+	    "weight": 1.8,
+	    "opacity": 0.9
+	};
+	var styleCP = {
+	    radius: 2,
+	    fillColor: "#6D929B",
+	    color: "#CC3300",
+	    weight: .7,
+	    opacity: 1,
+	    fillOpacity: 0.8		
+	}
 
- $(document).ready(function () {
-        
-        map = L.map('map').setView([40.70, -73.96], 11);
-
- 	var layer = new L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Shaded_Relief/MapServer/tile/{z}/{y}/{x}', 
- 	{
-		attribution: 'Tiles &copy; Esri &mdash; Source: Esri'
+	$.getJSON('test_routes.geojson', function (data) {
+		geojson = L.geoJson(data, 
+		{
+			style: styleRoutes,
+			onEachFeature: function (feature, layer) 
+			{
+				layer.bindPopup('division: ' + feature.properties.division);
+			}
+		})
+		layerControl.addOverlay (geojson, "Show NYCT Routes");
 	});
-	 map.addLayer(layer);
-                
+	var markers = L.markerClusterGroup()
+	$.getJSON('cp_dashboard.geojson', function (data) {
+		geojson = L.geoJson(data, 
+		{
+                        pointToLayer: function (feature, latlng) 
+                        {
+        			return L.circleMarker(latlng, styleStations);
+    			},
+    			onEachFeature: function (feature, layer) 
+    			{
+				var content = '<a href="http://web.mta.info/capitaldashboard/CPDHome.html">Capital Projects</a>';
+                            	layer.bindPopup(content);                   
+			}
+		});
+		markers.addLayer(geojson);
+		layerControl.addOverlay (markers, "Show Capital Projects");
+	});
+	
+	
+	$.getJSON('subway_stations.geojson', function (data) {
+		geojson = L.geoJson(data, {
+    			pointToLayer: function (feature, latlng) {
+        		return L.circleMarker(latlng, styleStations);
+    			}
+		})
+		layerControl.addOverlay (geojson, "Show NYCT Stations");
+	});
+	$.getJSON('limwa.geojson', function (data) {
+		geojson = L.geoJson(data, {
+        		style: styleLimits
+		})
+		layerControl.addOverlay (geojson, "Show Limits of Moderate Wave Action");
+	});
 	$.getJSON('fema_zones.geojson', function (data) {
 		geojson = L.geoJson(data, {
 			style: function(feature) {
@@ -132,10 +197,120 @@ nav {
 						break;
 				}
 			}	
-		}).addTo(map);
+		})
+		layerControl.addOverlay (geojson, "Show FEMA Flood Areas");
 	});
-});
+	$.getJSON('oem_2013.geojson', function (data) {
+		geojson = L.geoJson(data, {
+			style: function(feature) {
+			        switch (feature.properties.zone) {
+				            case '1': return {
+				            	color: 'red',
+				            	weight: .1,
+				            	fillOpacity: 0.3,
+				            	fillColor: 'red'
+				            };
+				            break;
+				            case '0': 
+							case '5':
+							case '4':
+							case '6':
+							case 'X':
+								return {
+								weight: 0,
+				            	fillOpacity: 0,
+				            
+				            };
+							break;
 
+				            case '2': return {
+				            	color: 'orange',
+				            	weight: .1,
+				            	fillOpacity: .3,
+				            	fillColor: 'orange'
+				            };
+				            
+				            case '3': return {
+				            	color: 'yellow',
+				            	weight: .1,
+				            	fillOpacity: .3,
+				            	fillColor: 'yellow'
+				            };
+			           
+			        }
+			}
+		})
+		layerControl.addOverlay (geojson, "Show Evacuation Zones");
+	});
+
+
+        $(document).ready(function () {
+
+//			var baseTerrain = new L.StamenTileLayer("terrainBackground");
+			var baseTerrainBackground = new L.tileLayer('http://{s}.tile.stamen.com/terrain-background/{z}/{x}/{y}.png', {
+				attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+				subdomains: 'abcd'
+			});
+			var baseShadedRelief = new L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Shaded_Relief/MapServer/tile/{z}/{y}/{x}', {
+				attribution: 'Tiles &copy; Esri &mdash; Source: Esri'
+			});
+
+			var baseAcetate = new L.tileLayer('http://a{s}.acetate.geoiq.com/tiles/terrain/{z}/{x}/{y}.png', {
+				attribution: '&copy;2012 Esri & Stamen, Data from OSM and Natural Earth',
+				subdomains: '0123',
+			});
+			var baseMapQuestAerial = new L.tileLayer('http://oatile{s}.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.jpg', {
+				attribution: 'Tiles Courtesy of <a href="http://www.mapquest.com/">MapQuest</a> &mdash; Portions Courtesy NASA/JPL-Caltech and U.S. Depart. of Agriculture, Farm Service Agency',
+				subdomains: '1234'
+			});
+			
+	
+			var overCyclone = new L.TileLayer.WMS("http://nowcoast.noaa.gov/wms/com.esri.wms.Esrimap/geolinks?service=wms&version=1.1.1&request=GetCapabilities", 
+			{
+				layers: 'tc_warn_breakpoints',
+				format: 'image/png',
+				transparent: true,
+				attribution: ' '
+			});
+
+		   	var overCounties = new L.TileLayer.WMS("http://tigerweb.geo.census.gov/ArcGIS/services/tigerWMS/MapServer/WMSServer",
+                    	{
+	                        layers: 'Counties',
+	                        format: 'image/png',
+	                        transparent: true,
+	                        attribution: 'tigerweb.geo.census.gov'
+                    	});
+			var overCongress = new L.TileLayer.WMS("http://tigerweb.geo.census.gov/ArcGIS/services/tigerWMS/MapServer/WMSServer",
+                    	{
+	                        layers: '113th Congressional Districts',
+	                        format: 'image/png',
+//	                        style: styleCongress,
+	                        transparent: true,
+	                        attribution: 'tigerweb.geo.census.gov'
+                    	});
+
+		
+			var map = L.map('map', {
+				center: [40.73, -73.99],
+				zoom: 12,
+				layers: [baseTerrainBackground]
+			});
+
+			var baseLayers = {
+				"Show Terrain": baseTerrainBackground,
+				"Show Shaded Relief": baseShadedRelief,
+				"Show Aerial": baseMapQuestAerial,
+				"Show Acetate": baseAcetate
+			};		
+
+			var overlays = {
+				"Show Congress Districts": overCongress,
+				"Show Counties": overCounties,
+//				"Show Cyclone Breakpoint": overCyclone
+			};
+
+			layerControl = L.control.layers(baseLayers, overlays).addTo(map);
+	});
 </script>
 
 
