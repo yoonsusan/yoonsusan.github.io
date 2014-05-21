@@ -125,14 +125,7 @@ nav {
 	    "weight": 1.8,
 	    "opacity": 0.9
 	};
-	var styleCP = {
-	    radius: 2,
-	    fillColor: "#6D929B",
-	    color: "#CC3300",
-	    weight: .7,
-	    opacity: 1,
-	    fillOpacity: 0.8		
-	}
+
 
 	$.getJSON('test_routes.geojson', function (data) {
 		geojson = L.geoJson(data, 
@@ -151,7 +144,7 @@ nav {
 		{
                         pointToLayer: function (feature, latlng) 
                         {
-        			return L.circleMarker(latlng, styleStations);
+        			return L.circleMarker(latlng, styleCP);
     			},
     			onEachFeature: function (feature, layer) 
     			{
