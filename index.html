@@ -254,16 +254,14 @@ nav {
 			var baseShadedRelief = new L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Shaded_Relief/MapServer/tile/{z}/{y}/{x}', {
 				attribution: 'Tiles &copy; Esri &mdash; Source: Esri'
 			});
-
-			var baseAcetate = new L.tileLayer('http://a{s}.acetate.geoiq.com/tiles/terrain/{z}/{x}/{y}.png', {
-				attribution: '&copy;2012 Esri & Stamen, Data from OSM and Natural Earth',
-				subdomains: '0123',
-			});
 			var baseMapQuestAerial = new L.tileLayer('http://oatile{s}.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.jpg', {
 				attribution: 'Tiles Courtesy of <a href="http://www.mapquest.com/">MapQuest</a> &mdash; Portions Courtesy NASA/JPL-Caltech and U.S. Depart. of Agriculture, Farm Service Agency',
 				subdomains: '1234'
 			});
-			
+			var baseAcetate = new L.tileLayer('http://a{s}.acetate.geoiq.com/tiles/terrain/{z}/{x}/{y}.png', {
+				attribution: '&copy;2012 Esri & Stamen, Data from OSM and Natural Earth',
+				subdomains: '0123',
+			});	
 	
 			var overCyclone = new L.TileLayer.WMS("http://nowcoast.noaa.gov/wms/com.esri.wms.Esrimap/geolinks?service=wms&version=1.1.1&request=GetCapabilities", 
 			{
@@ -293,7 +291,7 @@ nav {
 			var map = L.map('map', {
 				center: [40.73, -73.99],
 				zoom: 12,
-				layers: [baseTerrainBackground]
+				layers: [baseAcetate]
 			});
 
 			var baseLayers = {
