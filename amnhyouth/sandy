@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  </head>
+
+<body>
+<div class="container">
+      <h1 id="responsive-embed" class="page-header">AMNH Youth Initiatives | Climate Change Visualization 2014</h1>
+      <h3>Case Study: New York City</h3>
+      <h3>The Impacts of Hurricane Sandy on New York City</h3>
+      <p><strong>Authors:</strong></p>
+      <p></p>
+      
+      <div class="table-responsive">          
+      <table class="table">
+        <thead>
+          <tr>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Olivia G.</td>
+          </tr>
+          <tr>
+            <td>Olivia K.</td>
+          </tr>
+          <tr>
+            <td>Max R.</td>
+          </tr>
+          <tr>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  
+    <div class="bs-docs-section">
+      
+      <p>ADD TEXT</p>
+      
+      <div class="bs-example" data-example-id="responsive-embed-16by9-iframe-youtube">
+        
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe class="embed-responsive-item" src="http://yoonsusan.cartodb.com/viz/0f5d5fc4-83d8-11e4-bddd-0e9d821ea90d/embed_map" allowfullscreen></iframe>
+        </div>
+        
+        <div>
+          <p><a href=https://yoonsusan.cartodb.com/viz/0f5d5fc4-83d8-11e4-bddd-0e9d821ea90d/public_map target=_blank>[ADD SOURCE URL] View map as an iFrame</a></p>
+        </div>
+        
+        <div>
+          <p><img src=https://31.media.tumblr.com/bff05df718ce3d948855814d94293662/tumblr_inline_nfyvu2oFwB1t3y53j.png width='65%'  class="img-responsive center-block">center block</p>
+        </div>
+        
+      </div>    
+      
+      <p>ADD TEXT</p>
+      
+    </div>
+  
+</div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
