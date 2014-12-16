@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  </head>
+
+<body>
+<div class="container">
+      <h1 id="responsive-embed" class="page-header">AMNH Youth Initiatives | Climate Change Visualization 2014</h1>
+      <h3>[ADD DESCRIPTION]</h3>
+      <p><strong>Authors:</strong></p>
+      <p></p>
+      
+      <div class="table-responsive">          
+      <table class="table">
+        <thead>
+          <tr>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Jakob H.</td>
+          </tr>
+          <tr>
+            <td>Keesha C.</td>
+          </tr>
+          <tr>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+      <div>
+        <p><img src=https://38.media.tumblr.com/5b6820f13a3457146ea6a8db4be62351/tumblr_ngoo6umM7O1u21anoo1_500.jpg width='65%'  class="img-responsive center-block"></p>
+      </div>
+      
+      <div class="bs-docs-section">
+
+    
+      <h4><strong>  </strong></h4>
+      <p><strong>  </strong></p>
+      <p> </p>
+      
+      <div class="bs-example" data-example-id="responsive-embed-16by9-iframe-youtube">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe class="embed-responsive-item" src='' allowfullscreen></iframe>
+        </div>
+        
+        <div>
+          <p><a href=/public_map target=_blank>View map as an iFrame</a></p>
+        </div>
+      </div>    
+      
+      <h4><strong>  </strong></h4>
+      <p><strong>  </strong></p>
+      <p> </p>
+      
+      <div class="bs-example" data-example-id="responsive-embed-16by9-iframe-youtube">
+        
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe class="embed-responsive-item" src="/embed_map" allowfullscreen></iframe>
+        </div>
+        
+        <div>
+          <p><a href=/public_map target=_blank>View map as an iFrame</a></p>
+        </div>
+        
+      </div>    
+      
+      <h4><strong>  </strong></h4>
+      <p><strong>  </strong></p>
+      <p> </p>
+      
+      <div class="bs-example" data-example-id="responsive-embed-16by9-iframe-youtube">
+        
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe class="embed-responsive-item" src="/embed_map" allowfullscreen></iframe>
+        </div>
+        
+        <div>
+          <p><a href=/public_map target=_blank>View map as an iFrame</a></p>
+        </div>
+        
+      </div>  
+
+      
+    </div>
+  
+</div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
