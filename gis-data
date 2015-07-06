@@ -1,0 +1,29 @@
+<p>&nbsp;</p>
+
+<p><em style="margin: 0px; padding: 0px; border: 0px; font-family: 'Droid Sans', 'Helvetica Neue', 'Nimbus Sans L', sans-serif; font-size: 15px; font-stretch: inherit; line-height: 25.5px; vertical-align: baseline; color: rgb(51, 51, 51);">this page is under construction</em></p>
+
+<p>&nbsp;</p><hr /><p>Climate &amp; Urban Systems Partnership</p><p><a href="http://cuspmap.org/NYC/" target="_blank">http://cuspmap.org/NYC/</a></p><p><a href="http://cuspmap.org/NYC/sources/" target="_blank">http://cuspmap.org/NYC/sources/</a></p>
+
+<p>FEMA, Modeling Task Force</p>
+<p><a href="https://content.femadata.com/MOTF/">https://content.femadata.com/MOTF/</a></p>
+
+<p>FEMA, NFHL and FIRM Database</p>
+
+<p><a href="http://fema.maps.arcgis.com/home/item.html?id=cbe088e7c8704464aa0fc34eb99e7f30">http://fema.maps.arcgis.com/home/item.html?id=cbe088e7c8704464aa0fc34eb99e7f30
+</a></p>
+
+<p><a href="https://hazards.fema.gov/femaportal/prelimdownload/">https://hazards.fema.gov/femaportal/prelimdownload/</a>&nbsp;(item ID 36047)&nbsp;(not IE compatible)</p>
+
+<p><a href="https://hazards.fema.gov/femaportal/wps/portal/NFHLWMSkmzdownload">https://hazards.fema.gov/femaportal/wps/portal/NFHLWMSkmzdownload</a>&nbsp;(not IE compatible)</p>
+
+<p>service endpoint:&nbsp;<a href="http://hazards.fema.gov/gis/nfhl/rest/services/public/NFHL/MapServer"> http://hazards.fema.gov/gis/nfhl/rest/services/public/NFHL/MapServer</a></p>
+
+<p>GEOPlatform, Federal Geographic Data</p><p><a href="https://www.geoplatform.gov/node/201/%26fq%3Dmetadata_type%3A%22geospatial%22%2BAND%2B">https://www.geoplatform.gov/node/201/%26fq%3Dmetadata_type%3A%22geospatial%22%2BAND%2B</a></p>
+
+<p>NOAA, Office for Coastal Management</p><p><a href="http://coast.noaa.gov/dataregistry/search/collection" target="_blank">http://coast.noaa.gov/dataregistry/search/collection</a></p><p>NOAA, Climate Data</p><p><a href="http://www.climate.gov/maps-data" target="_blank">http://www.climate.gov/maps-data</a></p><p>NOAA, Environmental Sensitivity Shoreline</p><p>service endpoint:&nbsp;<a href="http://egisws02.nos.noaa.gov/ArcGIS/services">http://egisws02.nos.noaa.gov/ArcGIS/services</a></p><p>NOAA, Estuarine Bathymetry</p><p>service endpoints:&nbsp;</p><p><a href="http://egisws02.nos.noaa.gov/ArcGIS/rest/services/Estuarine_Bathymetry/NOAA_Estuarine_Bathymetry/MapServer">http://egisws02.nos.noaa.gov/ArcGIS/rest/services/Estuarine_Bathymetry/NOAA_Estuarine_Bathymetry/MapServer</a></p><p>NOAA, Sea Level Rise Planning Tool</p><p><a href="http://geoplatform.maps.arcgis.com/home/item.html?id=2960f1e066544582ae0f0d988ccb3d27">http://geoplatform.maps.arcgis.com/home/item.html?id=2960f1e066544582ae0f0d988ccb3d27</a></p><p>NOAA, State of the Coast, Coastal Vulnerability to Sea Level Rise</p><p><a href="http://stateofthecoast.noaa.gov/vulnerability/">http://stateofthecoast.noaa.gov/vulnerability/</a></p><p>NOAA, Tides &amp; Currents</p><p><a href="http://tidesandcurrents.noaa.gov/sltrends/sltrends.shtml">http://tidesandcurrents.noaa.gov/sltrends/sltrends.shtml</a></p><p>USACE, North Atlantic Coast Comprehensive Study</p><p><a href="http://www.nad.usace.army.mil/compstudy">http://www.nad.usace.army.mil/compstudy</a></p><p>geodatabse available from&nbsp;<a href="mailto:naccs@usace.army.mil">naccs@usace.army.mil</a></p><p>USGS,&nbsp;Coastal Vulnerability to Sea-Level Rise</p><p><a href="http://pubs.usgs.gov/dds/dds68/htmldocs/data.htm">http://pubs.usgs.gov/dds/dds68/htmldocs/data.htm</a></p><p>USGS, EarthExplorer</p><p><a href="http://earthexplorer.usgs.gov/">http://earthexplorer.usgs.gov/</a></p><p>USGS, &nbsp;National Geospatial Program,&nbsp;The National Map</p><p><a href="http://viewer.nationalmap.gov/example/services/serviceList.html#tnmviewer">http://viewer.nationalmap.gov/example/services/serviceList.html#tnmviewer</a></p><p>USGS, New York Water Science Center</p><p><a href="http://ny.water.usgs.gov/projects/tidal/live_coast.html">http://ny.water.usgs.gov/infodata/gisdata.html</a></p><p><a href="http://ny.water.usgs.gov/projects/tidal/live_coast.html">http://ny.water.usgs.gov/projects/tidal/live_coast.html</a></p><p><a href="http://maps.waterdata.usgs.gov/mapper/nwisquery.html?URL=http://waterdata.usgs.gov/ny/nwis/current?type=flow&amp;group_key=basin_cd&amp;format=sitefile_output&amp;sitefile_output_format=xml&amp;column_name=agency_cd&amp;column_name=site_no&amp;column_name=station_nm&amp;column_name=site_tp_cd&amp;column_name=dec_lat_va&amp;column_name=dec_long_va&amp;column_name=agency_use_cd">http://maps.waterdata.usgs.gov/mapper/nwisquery.html</a></p><p>USGS, National Water Infomation System</p>
+
+<p><a href="http://waterdata.usgs.gov/ny/nwis/current/?type=flow">http://waterdata.usgs.gov/ny/nwis/current/?type=flow</a></p><p><a href="http://maps.waterdata.usgs.gov/mapper/?state=ny">http://maps.waterdata.usgs.gov/mapper/?state=ny</a></p>
+
+<p>service endpoint:&nbsp;<a href="http://54.243.149.253:8080/ArcGIS/rest/services/sandy_nwis_sites/MapServer">http://54.243.149.253:8080/ArcGIS/rest/services/sandy_nwis_sites/MapServer</a></p><p>USGS, Water Resources, Hurricane Sandy Mapper</p>
+
+<p><a href="http://water.usgs.gov/floods/events/2012/sandy/sandymapper.html">http://water.usgs.gov/floods/events/2012/sandy/sandymapper.html</a></p><p><a href="http://54.243.149.253/home/webmap/viewer.html?webmap=c07fae08c20c4117bdb8e92e3239837e">http://54.243.149.253/home/webmap/viewer.html?webmap=c07fae08c20c4117bdb8e92e3239837e</a></p><p>&nbsp;</p>
